@@ -1,0 +1,66 @@
+# Python
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+
+# Virtual environments
+venv/
+ENV/
+env/
+.venv/
+
+# IDE
+.idea/
+.vscode/
+*.swp
+*.swo
+*~
+
+# OS
+.DS_Store
+Thumbs.db
+
+# 项目特定
+
+# 生成的图片和视频文件（体积大）
+outputs/**/*.png
+outputs/**/*.jpg
+outputs/**/*.jpeg
+outputs/**/*.mp4
+outputs/**/*.mov
+outputs/**/*.wav
+outputs/**/*.mp3
+
+# 但保留 shot-list.json
+!outputs/**/shot-list.json
+
+# 临时文件
+*.tmp
+*.temp
+*.log
+
+# 敏感配置
+.env
+.env.local
+*.pem
+*.key
+
+# 缓存
+.cache/
