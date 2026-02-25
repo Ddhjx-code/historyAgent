@@ -2,131 +2,182 @@
 
 ## 项目简介
 
-History Agent 是一个专门用于将历史故事转化为视频的 AI 系统。它通过生成详细的视觉和动态提示词，帮助用户制作历史题材的短视频。
+History Agent 是一个专门用于将口播稿和历史故事转化为视频分镜的 AI 系统。支持 **Seedance + FFmpeg 混合方案**，大幅降低视频生成成本。
+
+## 核心功能
+
+### 口播稿转分镜（shot-list-skill）
+
+将口播稿转化为可执行的 JSON 分镜清单，输出符合 API 规范的参数：
+
+- **Seedream**：生成关键帧图片
+- **Seedance**：历史场景视频生成（~1元/5秒）
+- **FFmpeg**：标题卡/转场/主持人镜头（免费）
+- **Azure TTS**：旁白音频生成
+
+### 混合方案成本优势
+
+| 镜头类型 | 视频工具 | 成本 |
+|---------|---------|------|
+| title_card（标题卡） | FFmpeg | 免费 |
+| transition（转场） | FFmpeg | 免费 |
+| host（主持人） | FFmpeg | 免费 |
+| historical_scene（历史场景） | Seedance | ~1元/5秒 |
+| map（地图） | FFmpeg | 免费 |
+
+**单集成本估算**：约 10-20 元（10-15 个历史场景镜头）
 
 ## 项目结构
 
 ```
 history/
-├── .iflow/                          # 核心配置目录
-│   ├── CLAUDE.md                    # 主 Agent 配置（制片人）
-│   ├── settings.local.json          # 权限配置
-│   ├── agents/                      # Agent 配置
-│   │   ├── storyboard-artist.md     # 分镜师 Agent
-│   │   ├── director.md              # 导演 Agent
-│   │   └── animator.md              # 动画师 Agent
-│   └── skills/                      # 技能包
-│       ├── history-storyboard-skill/   # 历史故事分镜生成技能
-│       ├── animator-skill/             # 动画师技能
-│       └── storyboard-review-skill/    # 分镜审核技能
-├── script/                          # 剧本目录
-│   └── 第一章-荆轲刺秦王.md
-├── outputs/                         # 生成产物目录
-│   ├── beat-breakdown-ep01.md       # 节拍拆解表
-│   ├── beat-board-prompt-ep01.md    # 九宫格提示词
-│   ├── sequence-board-prompt-ep01.md # 四宫格提示词
-│   └── motion-prompt-ep01.md        # 动态提示词
-└── README.md                        # 项目说明文档
+├── .iflow/                              # 核心配置目录
+│   ├── CLAUDE.md                        # 主 Agent 配置（制片人）
+│   ├── agents/                          # Agent 配置
+│   │   ├── storyboard-artist.md         # 分镜师 Agent
+│   │   └── director.md                  # 导演 Agent
+│   └── skills/                          # 技能包
+│       ├── shot-list-skill/             # 口播稿转分镜技能
+│       │   ├── SKILL.md                 # 技能说明
+│       │   ├── api-spec.md              # API 规范
+│       │   └── templates/
+│       │       └── shot-list-template.md
+│       ├── history-storyboard-skill/    # 历史故事分镜技能
+│       └── storyboard-review-skill/     # 分镜审核技能
+├── script/                              # 口播稿/剧本目录
+│   └── 事例稿.md                        # 示例口播稿
+├── outputs/                             # 生成产物目录
+│   └── {episode}/
+│       └── shot-list.json               # 分镜执行清单
+└── README.md
 ```
-
-## 功能特点
-
-### 1. 历史准确性优先
-- 服饰、建筑、道具符合历史时期特征
-- 人物的言行举止符合当时的社会礼仪
-- 场景设计反映真实的历史地理环境
-
-### 2. 完整的工作流程
-- **节拍拆解**：识别叙事曲线的关键拐点
-- **九宫格提示词**：生成 9 个关键画面
-- **四宫格提示词**：每个关键画面展开为 4 个序列帧
-- **动态提示词**：生成 30 个详细的动态场景描述
-
-### 3. Agent 协作系统
-- **制片人**：协调工作流程，把控质量
-- **分镜师**：生成静态分镜提示词
-- **导演**：审核所有产出，确保质量
-- **动画师**：生成动态提示词
 
 ## 使用方法
 
-### 准备工作
+### 1. 准备口播稿
 
-1. 将历史故事文本放入 `script/` 目录
-2. 文件命名建议带集数标识，如 `ep01-故事名.md`
+将口播稿放入 `script/` 目录，使用以下结构：
 
-### 生成提示词
+```markdown
+【开场白】
+开场内容...
 
-按照以下顺序执行：
+【第一部分】
+【事件一】
+事件内容...
+
+【结尾语】
+结尾内容...
+```
+
+### 2. 生成分镜清单
+
+使用命令：
 
 ```
-1. 节拍拆解 → 生成 outputs/beat-breakdown-ep01.md
-2. 九宫格提示词 → 生成 outputs/beat-board-prompt-ep01.md
-3. 四宫格提示词 → 生成 outputs/sequence-board-prompt-ep01.md
-4. 动态提示词 → 生成 outputs/motion-prompt-ep01.md
+/shotlist {集数}
 ```
 
-### 使用提示词生成视频
+流程：
+1. 读取口播稿
+2. 分镜师生成分镜清单
+3. 导演审核质量
+4. 输出 shot-list.json
 
-#### 推荐的 AI 视频生成工具：
-- **Runway Gen-2/Gen-3**（runwayml.com）
-- **Pika Labs**（pika.art）
-- **Kling AI**（可灵）
-- **Luma Dream Machine**
+### 3. 执行分镜清单
 
-#### 完整制作流程：
+读取 `shot-list.json`，依次调用 API：
 
-1. **生成关键帧图片**
-   - 使用 Midjourney、DALL-E、Stable Diffusion
-   - 根据 `beat-board-prompt-ep01.md` 生成 9 个关键画面
-   - 作为视频生成的参考（垫图）
+1. **Seedream** - 生成关键帧图片
+2. **Seedance/FFmpeg** - 生成视频片段
+3. **Azure TTS** - 生成旁白音频
 
-2. **生成视频片段**
-   - 使用 AI 视频生成工具
-   - 根据 `motion-prompt-ep01.md` 生成 30 个场景
-   - 使用关键帧图片作为参考，确保一致性
+### 4. 视频合成
 
-3. **视频剪辑**
-   - 使用 Premiere、Final Cut、剪映等工具
-   - 拼接 30 个场景
-   - 添加转场效果
-   - 同步音频
+使用 FFmpeg 或剪辑软件合成最终视频。
 
-4. **音频制作**
-   - 使用 TTS 工具（Azure TTS、ElevenLabs）生成旁白
-   - 根据 `sequence-board-prompt-ep01.md` 中的字幕内容
-   - 添加背景音乐
+## Agent 协作系统
 
-5. **最终导出**
-   - 导出为 MP4 格式
-   - 确保音视频同步
+| Agent | 角色 | 职责 |
+|-------|------|------|
+| 制片人（主 Agent） | 统筹协调 | 调度分镜师和导演，把控整体流程 |
+| 分镜师 | storyboard-artist | 解析口播稿，生成分镜清单 |
+| 导演 | director | 审核分镜质量，确保符合规范 |
 
-## 示例：荆轲刺秦王
+## API 规范
 
-项目包含完整的示例故事《荆轲刺秦王》：
+### Seedream 图像生成
 
-- **脚本**：`script/第一章-荆轲刺秦王.md`
-- **时长**：约 3 分钟
-- **场景数**：30 个动态场景
-- **特点**：注重历史准确性，从易水送别到刺秦失败的完整叙事
+```json
+{
+  "tool": "seedream",
+  "model": "doubao-seedream-4.5",
+  "parameters": {
+    "prompt": "历史纪录片风格，...",
+    "size": "1920x1080",
+    "n": 1
+  }
+}
+```
 
-## 项目优势
+### Seedance 视频生成（历史场景）
 
-1. **历史专业性**：专门针对历史故事设计，注重历史准确性
-2. **系统性**：完整的从故事到视频的工作流程
-3. **可扩展**：支持多集故事，模块化设计
-4. **AI 驱动**：充分利用 AI 视频生成技术
+```json
+{
+  "tool": "seedance",
+  "model": "doubao-seedance-2.0",
+  "parameters": {
+    "input_image": "shot_001.png",
+    "motion_prompt": "镜头缓慢推进...",
+    "duration": 10,
+    "resolution": "1080p"
+  }
+}
+```
+
+### FFmpeg Ken Burns（免费镜头）
+
+```json
+{
+  "tool": "ffmpeg",
+  "effect": "zoom_in",
+  "parameters": {
+    "input_image": "shot_001.png",
+    "duration": 8,
+    "zoom_start": 1.0,
+    "zoom_end": 1.15
+  }
+}
+```
+
+### Azure TTS 音频生成
+
+```json
+{
+  "tool": "azure_tts",
+  "voice": "zh-CN-XiaoxiaoNeural",
+  "ssml": "<speak>...</speak>",
+  "text": "旁白文本"
+}
+```
+
+## 即梦会员积分
+
+推荐使用即梦会员降低成本：
+
+| 平台 | 每日赠送 | 视频消耗 |
+|------|---------|---------|
+| 即梦网页版 | 每日登录积分 | 6积分/秒 |
+| 小云雀网页版 | 120积分/天 | 10积分/秒 |
+| 豆包App | 10次/天 | 免费 |
 
 ## 技术栈
 
-- **核心系统**：Agent 协作系统
-- **提示词生成**：分层渐进式方法论
-- **视频生成**：兼容主流 AI 视频生成工具
-- **历史考证**：基于《史记》等权威史料
-
-## 贡献指南
-
-欢迎提交历史故事脚本和改进建议！
+- **Agent 框架**：iFlow CLI
+- **图像生成**：Seedream (doubao-seedream-4.5)
+- **视频生成**：Seedance (doubao-seedance-2.0) / FFmpeg
+- **音频生成**：Azure TTS
+- **历史考据**：基于权威史料
 
 ## 许可证
 
@@ -136,7 +187,3 @@ MIT License
 
 - GitHub: https://github.com/Ddhjx-code/historyAgent
 - Issues: https://github.com/Ddhjx-code/historyAgent/issues
-
----
-
-**让历史故事通过 AI 视频生动呈现！**
