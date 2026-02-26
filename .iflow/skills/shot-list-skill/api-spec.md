@@ -4,7 +4,201 @@
 
 ---
 
-## 〇、混合方案总览
+## 〇、核心设计原则
+
+### 0.1 依赖关系与执行顺序（Critical）
+
+**问题**：视频生成依赖图片生成结果，如果盲目并行执行会导致错误。
+
+**解决方案**：在工作流引擎中内置依赖逻辑，或在 JSON 中显式声明依赖。
+
+**依赖规则**：
+1. `video` 任务必须等待同 Shot 下的 `image` 任务成功完成
+2. `audio` 任务可独立执行
+3. 最终合成必须等待所有 video 和 audio 任务完成
+
+**JSON 结构中的依赖声明**：
+```json
+{
+  "shot_id": "shot_004",
+  "tasks": {
+    "image": { ... },
+    "video": {
+      "depends_on": ["tasks.image"],
+      ...
+    }
+  }
+}
+```
+
+### 0.2 全局资源上下文（Global Context）
+
+**问题**：缺少背景音乐、统一风格约束、字体素材库等全局配置。
+
+**解决方案**：在 `meta` 下增加 `global_assets` 和 `style_preset`。
+
+**示例**：
+```json
+{
+  "meta": {
+    "project_name": "历史上的今天",
+    "episode": "2026-02-25",
+    "global_assets": {
+      "bgm": {
+        "path": "assets/bgm/documentary_ambient.mp3",
+        "volume": 0.3,
+        "ducking": true,
+        "ducking_ratio": 0.2
+      },
+      "fonts": {
+        "title": "assets/fonts/NotoSerifSC-Bold.otf",
+        "subtitle": "assets/fonts/NotoSansSC-Regular.otf"
+      },
+      "logo": "assets/images/logo.png",
+      "watermark": "assets/images/watermark.png"
+    },
+    "style_preset": {
+      "visual_style": "历史纪录片风格",
+      "color_grading": "暖色调，电影质感",
+      "transition_default": "dissolve"
+    }
+  }
+}
+```
+
+### 0.3 音频混合逻辑（Audio Mixing）
+
+**问题**：只有人声（TTS），没有混音策略。
+
+**解决方案**：定义音轨结构和混音规则。
+
+**音频轨道结构**：
+```json
+{
+  "audio_mix": {
+    "tracks": [
+      {
+        "type": "voice",
+        "source": "tts_output",
+        "volume": 1.0,
+        "effects": ["normalize", "noise_reduction"]
+      },
+      {
+        "type": "bgm",
+        "source": "global_assets.bgm",
+        "volume": 0.3,
+        "ducking": {
+          "trigger": "voice",
+          "ratio": 0.2,
+          "attack": 0.5,
+          "release": 1.0
+        }
+      },
+      {
+        "type": "sfx",
+        "events": [
+          { "time": "00:05", "sound": "page_flip.mp3", "volume": 0.5 },
+          { "time": "00:12", "sound": "whoosh.mp3", "volume": 0.4 }
+        ]
+      }
+    ]
+  }
+}
+```
+
+### 0.4 错误处理与重试机制（Error Handling）
+
+**问题**：AI 生成有失败率，没有定义重试策略。
+
+**解决方案**：增加 `retry_policy` 和 `fallback_prompt`。
+
+**重试策略**：
+```json
+{
+  "retry_policy": {
+    "max_retries": 3,
+    "backoff": "exponential",
+    "initial_delay": 2,
+    "max_delay": 30,
+    "retry_on": ["timeout", "content_filter", "rate_limit"]
+  },
+  "on_failure": "skip|stop|fallback",
+  "fallback_prompt": "备用提示词（内容审核友好版本）"
+}
+```
+
+### 0.5 文件路径管理（File Path Management）
+
+**问题**：相对路径不明确，分布式环境无法定位资源。
+
+**解决方案**：使用 URI 格式或由工作流引擎统一管理。
+
+**路径规范**：
+```json
+{
+  "storage": {
+    "type": "local|s3|oss",
+    "base_path": "file:///data/projects/history/outputs/2026-02-25/",
+    "s3_bucket": "history-agent-output",
+    "s3_prefix": "shots/"
+  },
+  "file_naming": {
+    "image": "{shot_id}.png",
+    "video": "{shot_id}.mp4",
+    "audio": "{shot_id}.mp3"
+  }
+}
+```
+
+### 0.6 人物一致性控制（Character Consistency）
+
+**问题**：同一人物在不同镜头中可能外观不一致。
+
+**解决方案**：使用 Seedance 2.0 的 `reference_image` + `seed` 参数。
+
+**一致性配置**：
+```json
+{
+  "character_consistency": {
+    "character_id": "xuanzang_645",
+    "reference_images": ["shot_007.png", "shot_007_alt.png"],
+    "seed": 42,
+    "description": "玄奘法师，唐代僧侣，身着袈裟，手持锡杖，面容慈祥"
+  }
+}
+```
+
+**注意**：Seedance 2.0 的多模态 @ 引用系统可精准复制参考视频的运镜和风格。
+
+### 0.7 转场效果定义（Inter-shot Transition）
+
+**问题**：缺乏镜头间转场的定义。
+
+**解决方案**：在每个镜头末尾定义转场类型，或在 `meta` 中定义默认转场。
+
+**转场类型**：
+| 类型 | 说明 | 时长 |
+|------|------|------|
+| dissolve | 叠化（淡入淡出） | 1-2秒 |
+| fade_to_black | 黑场过渡 | 1-2秒 |
+| wipe | 划像 | 0.5-1秒 |
+| cut | 直接切换 | 0秒 |
+| zoom | 缩放转场 | 0.5-1秒 |
+
+**转场配置**：
+```json
+{
+  "transition": {
+    "type": "dissolve",
+    "duration": 1.0,
+    "params": {}
+  }
+}
+```
+
+---
+
+## 一、混合方案总览
 
 为降低成本，采用 **Seedance + FFmpeg** 混合方案：
 
@@ -109,22 +303,39 @@
 {
   "tool": "seedance",
   "model": "doubao-seedance-2.0",
+  "depends_on": ["tasks.image"],
   "parameters": {
     "input_image": "string (必填，首帧图片路径)",
     "motion_prompt": "string (必填，动态描述)",
     "duration": "integer (1-15)",
     "resolution": "480p | 720p | 1080p",
-    "aspect_ratio": "16:9 | 9:16 | 1:1"
+    "aspect_ratio": "16:9 | 9:16 | 1:1",
+    "seed": "integer (可选，一致性控制)",
+    "reference_image": "string (可选，参考图片路径，用于人物一致性)",
+    "negative_prompt": "string (可选，负面提示词)"
+  },
+  "retry_policy": {
+    "max_retries": 3,
+    "backoff": "exponential"
   }
 }
 ```
 
 **参数约束**：
-| 参数 | 允许值 | 默认值 |
-|------|--------|--------|
-| duration | 1-15 | 5 |
-| resolution | 480p, 720p, 1080p | 1080p |
-| aspect_ratio | 16:9, 9:16, 1:1 | 16:9 |
+| 参数 | 允许值 | 默认值 | 说明 |
+|------|--------|--------|------|
+| duration | 1-15 | 5 | 视频时长（秒） |
+| resolution | 480p, 720p, 1080p | 1080p | 输出分辨率 |
+| aspect_ratio | 16:9, 9:16, 1:1 | 16:9 | 画面比例 |
+| seed | -1 ~ 2147483647 | 随机 | 固定种子确保一致性 |
+| reference_image | 文件路径或URL | null | 参考图片（人物一致性） |
+| negative_prompt | 字符串 | null | 排除不需要的元素 |
+
+**Seedance 2.0 高级功能**：
+- **多模态输入**：支持文本、图片、音频、视频 4 种输入
+- **多镜头叙事**：单次生成多场景连贯视频，角色和风格一致
+- **原生音频生成**：自动生成与画面同步的音效和背景音乐
+- **舞蹈/动作复刻**：上传参考视频，精准复制运镜和编舞动作
 
 ### 2.4 镜头运动词汇
 

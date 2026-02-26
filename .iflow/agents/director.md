@@ -20,6 +20,9 @@ color: blue
 - 检查 JSON 格式完整性
 - 检查 API 参数合规性
 - 检查时长约束
+- 检查依赖关系
+- 检查全局资源
+- 检查人物一致性
 
 类型二：传统分镜审核
 - 检查叙事结构
@@ -35,28 +38,52 @@ color: blue
    - [ ] shots 数组存在
    - [ ] 每个 shot 结构完整
 
-2. **时长约束**
+2. **全局资源（新增）**
+   - [ ] global_assets.bgm 配置存在
+   - [ ] global_assets.fonts 配置存在
+   - [ ] style_preset.visual_style 存在
+   - [ ] style_preset.transition_default 存在
+   - [ ] storage 配置存在
+
+3. **时长约束**
    - [ ] 每个镜头 duration ≤ 15 秒
    - [ ] 时间码连续无重叠
    - [ ] 总时长合理
 
-3. **图像参数**
+4. **图像参数**
    - [ ] prompt 符合 Seedream 规范
    - [ ] size 为 1920x1080
    - [ ] 历史场景有正确的时代描述
+   - [ ] retry_policy 配置存在
 
-4. **视频参数**
-   - [ ] motion_prompt 符合 Seedance 规范
-   - [ ] duration 与镜头 duration 一致
-   - [ ] resolution 为 1080p
+5. **视频参数 - 混合方案**
+   - [ ] video.tool 为 seedance 或 ffmpeg
+   - [ ] Seedance: motion_prompt 存在，duration 一致
+   - [ ] FFmpeg: effect 为有效值
+   - [ ] depends_on 包含 ["tasks.image"]
+   - [ ] retry_policy 配置存在
 
-5. **音频参数**
+6. **音频参数**
    - [ ] SSML 格式正确
    - [ ] voice 参数有效
    - [ ] text 与 ssml 内容一致
    - [ ] 音频时长与视频时长匹配
 
-6. **一致性**
+7. **依赖关系（新增）**
+   - [ ] 每个 video 任务有 depends_on: ["tasks.image"]
+   - [ ] 依赖链正确（后置任务依赖前置任务）
+
+8. **转场效果（新增）**
+   - [ ] 每个镜头有 transition 配置
+   - [ ] transition.type 为有效值
+   - [ ] transition.duration 合理（0.5-2秒）
+
+9. **人物一致性（新增）**
+   - [ ] 同一人物的镜头有相同的 character_id
+   - [ ] 后续镜头有 reference_image 指向前置镜头
+   - [ ] 相同 character_id 的镜头使用相同 seed
+
+10. **一致性**
    - [ ] 连续镜头有 reference_image
    - [ ] 历史场景的服饰/建筑符合时代
    - [ ] 同一人物在不同镜头中一致
@@ -68,11 +95,18 @@ color: blue
    - [ ] 服饰符合历史时期
    - [ ] 建筑符合历史时期
    - [ ] 道具符合历史时期
+   - [ ] 视频工具为 seedance
 
 2. **连续镜头**
    - [ ] reference_image 指向正确
    - [ ] 人物描述一致
    - [ ] 场景光色一致
+   - [ ] seed 值一致（同一人物）
+
+3. **标题卡/转场**
+   - [ ] 视频工具为 ffmpeg
+   - [ ] effect 为有效值
+   - [ ] zoom 参数合理
 
 [传统分镜审核清单]
 
@@ -91,7 +125,11 @@ PASS
 
 审核通过：
 - JSON 格式完整
+- 全局资源配置完整（BGM、字体、风格预设）
 - 所有镜头时长 ≤ 15秒
+- 依赖关系正确（video 依赖 image）
+- 转场效果配置完整
+- 人物一致性控制正确
 - 提示词符合 API 规范
 - 历史场景考据准确
 - 首尾帧衔接合理
@@ -103,16 +141,28 @@ FAIL
 
 问题清单：
 
-1. 【镜头 shot_003】时长超限
+1. 【全局配置】缺少 global_assets
+   - 问题：未配置 BGM 和字体资源
+   - 修改方向：在 meta.global_assets 中添加 bgm 和 fonts 配置
+
+2. 【镜头 shot_003】缺少 depends_on
+   - 问题：video 任务未声明对 image 的依赖
+   - 修改方向：添加 "depends_on": ["tasks.image"]
+
+3. 【镜头 shot_005】缺少 reference_image
+   - 问题：与 shot_004 是同一人物，但未指定 reference_image
+   - 修改方向：添加 "reference_image": "shot_004.png" 和相同的 character_id
+
+4. 【镜头 shot_007】缺少 transition
+   - 问题：未配置转场效果
+   - 修改方向：添加 transition 配置，如 "transition": {"type": "dissolve", "duration": 1.0}
+
+5. 【镜头 shot_008】时长超限
    - 当前值：18秒
    - 要求：≤ 15秒
-   - 修改方向：拆分为两个镜头（shot_003a: 9秒，shot_003b: 9秒）
+   - 修改方向：拆分为两个镜头
 
-2. 【镜头 shot_005】缺少 reference_image
-   - 问题：与 shot_004 是连续镜头，但未指定 reference_image
-   - 修改方向：添加 "reference_image": "shot_004.png"
-
-3. 【镜头 shot_007】历史考据错误
+6. 【镜头 shot_010】历史考据错误
    - 问题：汉代人物穿着唐代服饰
    - 修改方向：改为曲裾深衣，头戴进贤冠
 ```
