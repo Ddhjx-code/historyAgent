@@ -13,17 +13,82 @@ description: 口播稿转分镜清单技能。将口播稿转化为可执行的 
 - 图像分辨率：1920x1080（16:9 横屏）
 - 视频分辨率：1080p
 - 输出格式：JSON
-- **SSML 长度限制：≤ 1024 字符（Azure TTS 硬性限制）**
-- **单镜头旁白字数：≤ 100 字（按 3.5 字/秒计算，适配 15 秒时长）**
+- **旁白文本长度限制：≤ 1024 字符（Azure TTS text 字段硬性限制）**
+- **旁白文本应保留口播稿原始内容，尽量不精简**
+- **长旁白通过拆分为多个镜头来适配（每镜头 ≤ 15秒）**
 
 [文件结构]
 shot-list-skill/
 ├── SKILL.md                   # 本文件
 ├── api-spec.md                # API 规范（包含核心设计原则）
+├── core/                      # 核心模块（重构新增）
+│   ├── __init__.py           # 数据结构定义
+│   ├── script_parser.py      # 口播稿解析器
+│   ├── beat_breakdown.py     # 节拍拆解器
+│   ├── beat_board_generator.py  # Beat Board生成器（九宫格）
+│   ├── sequence_board_generator.py  # Sequence Board生成器（四宫格）
+│   ├── prompt_integrator.py  # Prompt集成器
+│   └── prompt_optimizer.py   # Prompt优化器
+├── libraries/                 # 历史特征库（重构新增）
+│   ├── historical_characters.json
+│   ├── historical_costumes.json
+│   ├── historical_architecture.json
+│   └── historical_locations.json
+├── output/                    # 输出目录（重构新增）
+│   ├── beat_breakdown/       # 节拍拆解表
+│   ├── beat_board/          # Beat Board（九宫格）
+│   └── sequence_board/      # Sequence Board（四宫格）
 └── templates/
-    └── shot-list-template.md  # 输出模板
+    ├── shot-list-template.md  # 输出模板
+    ├── beat-breakdown-template.md  # 节拍拆解模板（新增）
+    ├── beat-board-template.md      # Beat Board模板（新增）
+    └── sequence-board-template.md  # Sequence Board模板（新增）
 
-## 混合方案（成本优化）
+## 重构说明（v2.0）
+
+**重构时间**: 2026-02-27
+**重构目标**: 提升图像提示词质量，采用分层渐进式分镜流程
+
+### 重构核心
+
+1. **分层渐进式分镜流程**
+   - 从直接拆分镜头 → 节拍拆解 → Beat Board → Sequence Board
+   - 确保叙事清晰、视觉连贯、人物一致
+
+2. **提升提示词质量**
+   - 从"关键词堆叠式" → "叙事描述式"
+   - 符合Gemini最佳实践（场景化思维、摄影术语融入自然语言）
+   - 整合隔壁项目的prompt生态（intelligent-prompt-generator、prompt-extractor、learner）
+
+3. **建设历史特征库**
+   - 人物特征库（characters）
+   - 服饰库（costumes）
+   - 建筑库（architecture）
+   - 地点库（locations）
+
+### 新工作流程
+
+```
+口播稿解析（Script Parser）
+    ↓ 提取结构、元数据、情绪关键词
+节拍拆解（Beat Breakdown）
+    ↓ 识别最小叙事单元，标注强度，选择9个锚点
+Beat Board生成（九宫格）
+    ↓ 确立视觉锚点，确保风格统一
+Sequence Board生成（四宫格）
+    ↓ 展开"起承转合"结构，继承一致性
+历史特征库匹配
+    ↓ 人物/服饰/建筑/地点
+Prompt智能生成
+    ↓ intelligent-prompt-generator + prompt-extractor
+Prompt优化
+    ↓ 一致性检查、Gemini最佳实践
+shot-list.json生成
+    ↓ 整合所有模块
+最终输出
+```
+
+### 混合方案（成本优化）
 
 采用 **Seedance + FFmpeg** 混合方案降低成本：
 
@@ -40,60 +105,49 @@ shot-list-skill/
 1. 解析口播稿 → 提取场景、时间轴、旁白
 2. 场景分镜 → 按 ≤15s 拆分为镜头
 3. 分配视频工具 → 根据镜头类型选择 FFmpeg/Seedance
-4. 生成图像提示词 → 调用 prompt_engine.HistoryPromptGenerator（见下方集成说明）
+4. 生成图像提示词 → 按照全中文格式生成（见图像提示词生成规则）
 5. 生成动态参数 → FFmpeg 效果或 Seedance 提示词
 6. 生成 SSML → 符合 Azure TTS 规范
 7. 配置全局资源 → BGM、字体、风格预设
 8. 设置依赖关系 → video 依赖 image
 9. 输出 shot-list.json
 
-[提示词生成器集成]
+[图像提示词生成]
 
-本项目集成了 skill-prompt-generator 的智能提示词生成能力：
+图像提示词采用**全中文描述**，简洁直观，便于理解和调试。
 
-**使用方式**：
-```python
-from prompt_engine import HistoryPromptGenerator
+**生成规则**：
+1. 基础风格：历史纪录片风格
+2. 时代特征：朝代/时代 + 服饰 + 建筑 + 色调
+3. 场景描述：人物、动作、环境
+4. 画面参数：电影质感、16:9横屏、高清画质
 
-gen = HistoryPromptGenerator()
-
-# 方式1：自动解析场景参数
-text = "战国时期，秦国大殿上，秦王赢稷与武将白起议事"
-params = gen.parse_scene_from_text(text)
-result = gen.generate_image_prompt(text, **params)
-
-# 方式2：手动指定参数
-result = gen.generate_image_prompt(
-    scene_description="哈德良皇帝指定继承人",
-    dynasty="roman",
-    character_type="emperor",
-    scene_type="palace_hall",
-    visual_style="cinematic"
-)
-
-# 获取生成的提示词
-image_prompt = result['image_prompt']
+**提示词格式**：
+```
+历史纪录片风格，[时代]时代，[服饰特征]，[建筑风格]，[色调]。
+[场景描述]，[人物动作]，[光影氛围]。
+电影质感，16:9横屏，高清画质。
 ```
 
-**支持的历史领域参数**：
+**示例**：
 
-| 参数 | 可选值 |
+| 场景 | 提示词 |
 |------|--------|
-| dynasty | qin_han, tang, song, ming, qing, warring_states, roman, medieval |
-| character_type | emperor, general, scholar, warrior, monk, concubine, soldier, assassin |
-| scene_type | palace_hall, battlefield, court, garden, temple, city_gate, war_council |
-| action | duel, army_charge, court_debate, assassination, coronation |
-| visual_style | cinematic, documentary, epic, intimate |
+| 罗马宫殿 | 历史纪录片风格，古罗马时代，托加长袍，大理石柱建筑，暖黄白金色调。哈德良皇帝坐在宝座上，威严庄重，宫廷氛围。电影质感，16:9横屏，高清画质。 |
+| 唐代长安 | 历史纪录片风格，唐代，襦裙圆领袍，斗拱飞檐建筑，绚丽多彩色调。玄奘高僧携带佛经，站在城门前，神圣庄严。电影质感，16:9横屏，高清画质。 |
+| 智利地震 | 历史纪录片风格，现代智利，现代建筑，蓝白暖橙色调。地震后街道，建筑摇晃，紧张氛围。电影质感，16:9横屏，高清画质。 |
 
-**生成动态视频提示词**：
-```python
-result = gen.generate_motion_prompt(
-    scene_description="唐朝宫廷，皇帝坐在龙椅上",
-    motion_type="subtle",  # subtle, moderate, dynamic
-    dynasty="tang"
-)
-motion_prompt = result['motion_prompt']
-```
+**时代特征速查**：
+
+| 时代 | 服饰 | 建筑 | 色调 |
+|------|------|------|------|
+| 古罗马 | 托加长袍、橄榄冠 | 大理石柱、马赛克 | 暖黄、白、金 |
+| 波斯 | 波斯长袍、金冠 | 宫殿、穹顶 | 金、红、深蓝 |
+| 唐代 | 襦裙、圆领袍 | 斗拱、飞檐 | 绚丽多彩 |
+| 明清 | 马褂、旗装 | 琉璃瓦、红墙 | 红黄、蓝 |
+| 工业时代 | 西装马甲、礼帽 | 工厂、蒸汽机 | 褐色、铜色 |
+| 现代 | 正装、商务西装 | 现代建筑 | 蓝灰、中性色 |
+| 台湾民国 | 中山装、旗袍 | 台北老街 | 棕色、暖黄 |
 
 [口播稿解析规则]
 
@@ -148,10 +202,11 @@ motion_prompt = result['motion_prompt']
 - 拆分点选择：动作变化、视角切换、时间跳跃
 
 **旁白时长匹配规则**：
-- 中文语速：约 3-4 字/秒（建议按 3.5 字/秒计算）
+- 中文语速：约 3.5 字/秒
 - 计算公式：`旁白字数 ÷ 3.5 = 预估秒数`
 - 镜头时长 = 旁白预估秒数 + 1秒缓冲
-- 如果旁白过长导致 SSML 超过 1024 字符，必须精简旁白内容
+- 如果旁白字数 > 1024 或预估时长 > 15秒，必须拆分为多个镜头
+- **拆分原则**：按语义单元拆分，保持口播稿原始内容完整性
 
 **转场提示词规则**：
 
@@ -290,32 +345,18 @@ motion_prompt = result['motion_prompt']
 
 [历史考据规则]
 
-识别时代后自动补充：
-| 时代 | 服饰特征 | 建筑风格 | 色调 |
-|------|---------|---------|------|
-| 古罗马 | 托加长袍、橄榄冠 | 大理石柱、马赛克 | 暖黄、白 |
-| 战国秦汉 | 深衣、冠冕 | 宫殿、城郭 | 黑红、金 |
-| 唐代 | 襦裙、圆领袍 | 斗拱、飞檐 | 绚丽多彩 |
-| 明清 | 马褂、旗装 | 琉璃瓦、红墙 | 红黄、蓝 |
-| 工业时代（19世纪） | 西装马甲、礼帽 | 工厂车间、蒸汽机 | 褐色、铜色 |
-| 现代（20-21世纪） | 正装、商务西装 | 现代建筑、会议室 | 蓝灰、中性色 |
+识别时代后，按照以下模板生成图像提示词：
 
-**时代关键词识别**：
-
-| 时代标识 | 关键词（优先级从高到低） |
-|---------|------------------------|
-| roman | 罗马、哈德良、安敦宁、罗马帝国 |
-| persian | 波斯、萨珊、霍斯劳、喀瓦德 |
-| tang | 玄奘、长安、唐代（注意：单独"唐"不匹配） |
-| ming | 明代、明朝、朱瞻基、宣德（注意：单独"明"不匹配，避免匹配"发明"） |
-| medieval | 中世纪、骑士、瑞典国王、埃里克 |
-| tibetan | 西藏、达赖、仓央嘉措、布达拉宫 |
-| industrial | 柯尔特、左轮手枪、钢铁公司、摩根、发明家、工业 |
-| modern | 外交部、发言人、科威特、独立、苏维埃 |
-
-**注意**：
-- 识别时要避免误匹配，如"发明"中的"明"不应匹配为明朝
-- 使用完整词汇匹配优先于单字匹配
+| 时代 | 服饰特征 | 建筑风格 | 色调 | 提示词模板 |
+|------|---------|---------|------|----------|
+| 古罗马 | 托加长袍、橄榄冠 | 大理石柱、马赛克 | 暖黄、白 | 历史纪录片风格，古罗马时代，托加长袍，大理石柱建筑，暖黄白金色调。 |
+| 波斯 | 波斯长袍、金冠 | 宫殿、穹顶 | 金、红、深蓝 | 历史纪录片风格，波斯时代，波斯长袍，宫殿穹顶建筑，金红深蓝色调。 |
+| 战国秦汉 | 深衣、冠冕 | 宫殿、城郭 | 黑红、金 | 历史纪录片风格，战国秦汉，深衣冠冕，宫殿城郭建筑，黑红金色调。 |
+| 唐代 | 襦裙、圆领袍 | 斗拱、飞檐 | 绚丽多彩 | 历史纪录片风格，唐代，襦裙圆领袍，斗拱飞檐建筑，绚丽多彩色调。 |
+| 明清 | 马褂、旗装 | 琉璃瓦、红墙 | 红黄、蓝 | 历史纪录片风格，明清时代，马褂旗装，琉璃瓦红墙建筑，红黄蓝色调。 |
+| 台湾民国 | 中山装、旗袍 | 台北老街 | 棕色、暖黄 | 历史纪录片风格，台湾民国时期，中山装旗袍，台北老街建筑，棕暖黄色调。 |
+| 工业时代 | 西装马甲、礼帽 | 工厂车间、蒸汽机 | 褐色、铜色 | 历史纪录片风格，工业时代，西装马甲礼帽，工厂蒸汽机建筑，褐铜色调。 |
+| 现代 | 正装、商务西装 | 现代建筑、会议室 | 蓝灰、中性色 | 历史纪录片风格，现代，正装商务西装，现代建筑会议室，蓝灰中性色调。 |
 
 [重试策略]
 
@@ -347,12 +388,14 @@ motion_prompt = result['motion_prompt']
 [注意事项]
 - 严格按照 api-spec.md 中的规范生成提示词
 - 确保每个镜头时长 ≤ 15秒
-- **确保每个 SSML 长度 ≤ 1024 字符**
+- **确保每个镜头的 text 字段 ≤ 1024 字符**
 - **确保旁白字数与镜头时长匹配（3.5 字/秒）**
+- **保留口播稿原始旁白内容，不随意精简**
 - **确保章节与事件分配正确**
 - **确保转场提示词与章节主题匹配**
 - 连续镜头必须指定 reference_image
 - 旁白文本必须生成对应的 SSML（使用 SSMLGenerator，见下方说明）
+- 图像提示词采用全中文格式（见图像提示词生成规则）
 - 历史场景必须使用 Seedance（需动态效果）
 - 其他类型镜头使用 FFmpeg（节省成本）
 - 在 meta 中添加 cost_estimate 预估成本
@@ -368,8 +411,9 @@ motion_prompt = result['motion_prompt']
 生成 shot-list.json 后必须校验：
 
 - [ ] 每个镜头 duration ≤ 15
-- [ ] 每个 SSML 长度 ≤ 1024 字符
-- [ ] 每个镜头旁白字数 ≤ 时长 × 4（留有余量）
+- [ ] 每个镜头的 text 字段 ≤ 1024 字符
+- [ ] 每个镜头旁白字数 ≤ 时长 × 3.5（按语速计算）
+- [ ] 旁白内容保留口播稿原始内容，不随意精简
 - [ ] 章节转场位置正确（在各章节第一个事件之前）
 - [ ] 章节转场提示词与后续内容主题匹配
 - [ ] 历史场景的朝代/时代识别正确
