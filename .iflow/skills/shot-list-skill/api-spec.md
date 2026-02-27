@@ -249,7 +249,9 @@
     "prompt": "string (必填，图像描述)",
     "size": "1920x1080 | 1080x1920 | 1024x1024",
     "n": 1,
-    "reference_image": "string (可选，参考图片路径)"
+    "reference_image": "string (可选，参考图片路径)",
+    "needs_text": "boolean (是否需要生成文字内容)",
+    "seed": "integer (可选，随机种子，确保可复现)"
   }
 }
 ```
@@ -260,6 +262,40 @@
 | size | 1920x1080, 1080x1920, 1024x1024 | 1920x1080 |
 | n | 1 | 1 |
 | reference_image | 文件路径或URL | null |
+| needs_text | true, false | false |
+| seed | 整数 | null |
+
+**模型选择规则**：
+- `needs_text = true`：使用 `doubao-seedream-4.5`（高级模型，擅长文字生成）
+- `needs_text = false`：使用 `doubao-seedream-3.0`（经济模型，成本更低）
+
+**needs_text 判断规则**：
+1. `title_card` 类型：`needs_text = true`
+2. `transition` 类型：检查 prompt 是否包含文字指示词（标题、年份、标记等）
+3. `historical_scene` 类型：检查 prompt 是否包含文字指示词
+
+**敏感词过滤规则**：
+
+以下词汇会导致图像生成失败，必须过滤：
+
+| 敏感词 | 替换为 |
+|--------|--------|
+| 革命 | ** |
+| 台湾 | ** |
+| 共产党 | ** |
+| 苏维埃 | ** |
+| 共产主义 | ** |
+
+**过滤策略**：
+- 在生成 prompt 后立即过滤
+- 将敏感词替换为 `**`
+- 确保所有 prompt 都经过过滤
+
+**说明**：
+- `needs_text` 字段标识该镜头是否需要生成文字内容（如标题、字幕、年份标记等）
+- 需要文字的镜头必须使用高级模型（4.5）以确保文字质量
+- 不需要文字的镜头可以使用经济模型（3.0）以降低成本
+- 敏感词过滤是必须的步骤，避免生成失败
 
 ### 1.4 Prompt 写法要点
 

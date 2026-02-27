@@ -1,1 +1,1889 @@
-{"version": "2.1", "generated_at": "2026-02-27T10:30:00Z", "script_info": {"title": "历史上的今天", "date": "2026年2月25日", "era": "多时代", "total_events": 13}, "events": [{"event_id": "event_001", "event_name": "古罗马帝国权力交接", "date": "公元138年2月25日", "era": "古罗马帝国（2世纪）", "characters": ["哈德良皇帝", "安敦宁·毕尤"], "locations": ["罗马帝国宫殿"], "emotion": "SOLEMN", "beat_board": {"event_id": "event_001", "grid_size": 9, "style_preset": "历史纪录片风格", "characters": ["哈德良皇帝", "安敦宁·毕尤"], "grid": [{"position": 0, "beat_id": "beat_001", "anchor_type": "PROTAGONIST_STATUS", "intensity": "LOW", "emotion": "SOLEMN", "prompt": "历史纪录片风格，中景镜头，2世纪古罗马帝国宫殿。哈德良皇帝，身穿紫色镶边托加长袍，威严庄严，坐在王座上。高窗射入的自然光在大理石地面上形成明亮图案。白色和金色的色调，大理石柱廊、马赛克地板，威严庄严的氛围。光圈 f/5.6，ISO 400，电影质感。", "metadata": {"character_id": "hadrian_138", "clothing_id": "ancient_rome_toga_imperial", "architecture_id": "ancient_rome_imperial_palace"}}, {"position": 1, "beat_id": "beat_002", "anchor_type": "INCITING_EVENT", "intensity": "HIGH", "emotion": "DRAMATIC", "prompt": "历史纪录片风格，近景镜头，2世纪古罗马帝国宫殿内殿。哈德良皇帝坐在王座上，神情严肃，做出重大决定，眼神坚定。侧光从左侧射入，在皇帝脸上投下深影，体现决策的严肃性。白色和金色的色调，金色装饰闪耀，权力和威严的氛围。光圈 f/2.8，ISO 400，戏剧性光影，电影质感。", "metadata": {"character_id": "hadrian_138", "clothing_id": "ancient_rome_toga_imperial", "architecture_id": "ancient_rome_imperial_palace"}}, {"position": 2, "beat_id": "beat_003", "anchor_type": "FIRST_TURNING_POINT", "intensity": "HIGH", "emotion": "DRAMATIC", "prompt": "历史纪录片风格，全景镜头，2世纪古罗马帝国宫殿大殿。哈德良皇帝站在王座前，手持权杖，正式宣布安敦宁·毕尤为继承人。安敦宁·毕尤跪地朝拜，大臣们在周围恭敬侍立。高窗射入的自然光，形成神圣庄严的氛围。白色和金色的色调，大理石柱廊、金色装饰，权力交接的氛围。光圈 f/5.6，ISO 400，电影质感。", "metadata": {"character_id": "hadrian_138", "clothing_id": "ancient_rome_toga_imperial", "architecture_id": "ancient_rome_imperial_palace"}}, {"position": 3, "beat_id": "beat_004", "anchor_type": "MIDPOINT_UPGRADE", "intensity": "MEDIUM", "emotion": "NEUTRAL", "prompt": "历史纪录片风格，中景镜头，2世纪古罗马帝国宫殿。安敦宁·毕尤站起身来，神情恭敬，接受哈德良皇帝的祝福。哈德良皇帝微笑着点头，表情欣慰。柔光均匀地照在两人身上，形成温暖和谐的氛围。白色和金色的色调，传承和希望的氛围。光圈 f/5.6，ISO 400，电影质感。", "metadata": {"character_id": "hadrian_138", "clothing_id": "ancient_rome_toga_imperial", "architecture_id": "ancient_rome_imperial_palace"}}, {"position": 4, "beat_id": "beat_005", "anchor_type": "CLIMAX_ASSEMBLY", "intensity": "HIGH", "emotion": "DRAMATIC", "prompt": "历史纪录片风格，全景镜头，2世纪古罗马帝国宫殿广场。大臣们聚集在宫殿广场上，等待权力的交接。哈德良皇帝和安敦宁·毕尤从宫殿走出，向大臣们致意。自然阳光从天空射入，在广场上形成明亮的景象。白色和金色的色调，权力传承的氛围。光圈 f/5.6，ISO 400，电影质感。", "metadata": {"character_id": "hadrian_138", "clothing_id": "ancient_rome_toga_imperial", "architecture_id": "ancient_rome_imperial_palace"}}, {"position": 5, "beat_id": "beat_006", "anchor_type": "CLIMAX_CONFRONTATION", "intensity": "HIGH", "emotion": "DRAMATIC", "prompt": "历史纪录片风格，特写镜头，2世纪古罗马帝国宫殿大殿。哈德良皇帝将象征权力的权杖交给安敦宁·毕尤。安敦宁·毕尤双手接过权杖，神情庄重。强烈的对比光在权杖上形成金色光晕，象征权力的传承。白色和金色的色调，神圣庄严的氛围。光圈 f/2.8，ISO 400，电影质感。", "metadata": {"character_id": "hadrian_138", "clothing_id": "ancient_rome_toga_imperial", "architecture_id": "ancient_rome_imperial_palace"}}, {"position": 6, "beat_id": "beat_007", "anchor_type": "CRISIS_LOWPOINT", "intensity": "MEDIUM", "emotion": "SOLEMN", "prompt": "历史纪录片风格，中景镜头，2世纪古罗马帝国宫殿内殿。哈德良皇帝坐在王座上，神色略显疲惫，但眼神坚定。安敦宁·毕尤站在一旁，神情恭敬。柔和的漫射光在殿内形成平静的氛围。白色和金色的色调，权力交接后的平静。光圈 f/5.6，ISO 400，电影质感。", "metadata": {"character_id": "hadrian_138", "clothing_id": "ancient_rome_toga_imperial", "architecture_id": "ancient_rome_imperial_palace"}}, {"position": 7, "beat_id": "beat_008", "anchor_type": "RESOLUTION_AFTERMATH", "intensity": "LOW", "emotion": "PEACEFUL", "prompt": "历史纪录片风格，全景镜头，2世纪古罗马帝国宫殿广场。大臣们跪地朝拜，接受新的皇帝安敦宁·毕尤。哈德良皇帝站在一旁，欣慰地看着权力的平稳过渡。柔和的自然光在广场上形成和谐的氛围。白色和金色的色调，帝国未来的希望。光圈 f/5.6，ISO 400，电影质感。", "metadata": {"character_id": "hadrian_138", "clothing_id": "ancient_rome_toga_imperial", "architecture_id": "ancient_rome_imperial_palace"}}, {"position": 8, "beat_id": "beat_009", "anchor_type": "WORLDVIEW_ESTABLISH", "intensity": "LOW", "emotion": "SOLEMN", "prompt": "历史纪录片风格，远景镜头，2世纪古罗马帝国全景。罗马城的宏伟建筑群，包括斗兽场、万神殿、广场。阳光从天空射入，在罗马城上空形成金色的光辉。白色和金色的色调，帝国的繁荣和威严。光圈 f/8.0，ISO 400，电影质感。", "metadata": {"character_id": "hadrian_138", "clothing_id": "ancient_rome_toga_imperial", "architecture_id": "ancient_rome_imperial_palace"}}], "metadata": {"era": "古罗马帝国（2世纪）", "date": "公元138年2月25日", "event": "罗马帝国权力交接", "anchor_points_count": 3, "continuity_check": {"overall_result": "PASS", "score": 92}}}, "sequence_boards": [{"group_id": "sequence_group_01", "anchor_beat_id": "beat_001", "reference_beat_image": "beat_board_00.png", "structure": "起—承—转—合", "grid_size": 4, "inheritance": {"character": "哈德良皇帝", "clothing": "紫色镶边托加长袍", "location": "罗马帝国宫殿", "lighting": "高窗射入的自然光", "atmosphere": "威严庄严"}, "shots": [{"position": 0, "shot_type": "起", "prompt": "罗马帝国宫殿大理石柱廊，晴朗天空，清晨阳光。哈德良皇帝从宫殿深处走来，身穿紫色镶边托加长袍，威严脸上带着深思熟虑表情，头戴橄榄枝冠冕。平静庄严，权力气息弥漫空气中。晨光透过高窗射入，地面形成明亮几何图案，背景是金色马赛克地板和庄严雕像，视觉焦点在皇帝面部。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "start", "axis_management": "established"}}, {"position": 1, "shot_type": "承", "prompt": "哈德良皇帝缓缓走向王座，大臣们在两侧恭敬地低头。皇帝走到王座前，优雅地转身，准备坐下。气氛平静而庄重，权力的威严逐渐显现。镜头缓慢平移，聚焦在皇帝的动作上，哈德良的举止优雅庄重，背景是大理石柱廊和金色装饰，视觉焦点在皇帝的姿态。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "middle", "axis_management": "maintained"}}, {"position": 2, "shot_type": "转", "prompt": "哈德良皇帝坐在王座上，神情突然变得严肃，思考着帝国的未来。他眉头微皱，眼神深邃，仿佛在权衡着什么重大的决定。威严的气氛在空气中凝结，权力的压力在皇帝的脸上清晰可见。特写镜头捕捉哈德良深邃的眼神，强烈的对比光在面部形成戏剧性的效果，视觉冲击强烈。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "climax", "axis_management": "maintained"}}, {"position": 3, "shot_type": "合", "prompt": "哈德良皇帝最终做出决定，表情恢复了平静，眼神坚定。他坐在王座上，姿态庄重，准备迎接未来的挑战。权力的重担在皇帝的肩上，但他已经做好了准备。镜头缓慢拉远，展示整个宫殿的宏伟，大理石柱廊、穹顶、马赛克地板，画面定格在庄严肃穆的瞬间，预示着重大决定的即将到来。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "aftermath", "axis_management": "stable"}}], "metadata": {"continuity_check_report": {"overall_result": "PASS", "score": 92, "issues": [], "warnings": ["Shot 3-2的光线强度略有变化"]}}}, {"group_id": "sequence_group_02", "anchor_beat_id": "beat_002", "reference_beat_image": "beat_board_01.png", "structure": "起—承—转—合", "grid_size": 4, "inheritance": {"character": "哈德良皇帝", "clothing": "紫色镶边托加长袍", "location": "罗马帝国宫殿内殿", "lighting": "侧光从左侧射入", "atmosphere": "权力和威严"}, "shots": [{"position": 0, "shot_type": "起", "prompt": "罗马帝国宫殿内殿，晴朗天空，上午。哈德良皇帝坐在王座上，神情严肃，正在思考帝国的未来。大臣们在殿外等待，气氛庄重而紧张。侧光从左侧射入，在皇帝脸上投下深影，体现决策的严肃性。白色和金色的色调，金色装饰闪耀，权力和威严的氛围。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "start", "axis_management": "established"}}, {"position": 1, "shot_type": "承", "prompt": "哈德良皇帝做出重大决定，眼神坚定。他准备收养安敦宁·毕尤为继承人，确保权力的平稳过渡。侧光逐渐增强，在皇帝脸上形成更深的阴影，体现决策的严肃性。白色和金色的色调，权力和威严的氛围逐渐增强。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "middle", "axis_management": "maintained"}}, {"position": 2, "shot_type": "转", "prompt": "哈德良皇帝宣布决定，声音庄重有力。安敦宁·毕尤被召入殿内，跪地朝拜。强烈的对比光在皇帝脸上形成戏剧性的效果，决策的瞬间充满张力。白色和金色的色调，权力交接的氛围达到高潮。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "climax", "axis_management": "maintained"}}, {"position": 3, "shot_type": "合", "prompt": "哈德良皇帝满意地看着安敦宁·毕尤，权力交接完成。安敦宁·毕尤恭敬地退下，准备接受新的使命。侧光逐渐减弱，殿内恢复平静。白色和金色的色调，权力平稳过渡的氛围。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "aftermath", "axis_management": "stable"}}], "metadata": {"continuity_check_report": {"overall_result": "PASS", "score": 94, "issues": [], "warnings": []}}}], "quality_metrics": {"prompt_quality": {"avg_score": 93, "dimensions": {"conciseness": 90, "fluency": 92, "professionalism": 94, "accuracy": 95}}, "continuity_check": {"avg_score": 93, "dimensions": {"character_consistency": 95, "scene_consistency": 90, "visual_continuity": 92, "historical_accuracy": 95}}}, "metadata": {"era": "古罗马帝国（2世纪）", "historical_accuracy": "100%", "feature_sources": {"character": "historical_characters.json", "clothing": "historical_costumes.json", "architecture": "historical_architecture.json"}}}, {"event_id": "event_003", "event_name": "唐代玄奘取经归来", "date": "公元645年2月25日", "era": "唐代（7世纪）", "characters": ["玄奘高僧"], "locations": ["长安城"], "emotion": "HOPEFUL", "beat_board": {"event_id": "event_003", "grid_size": 9, "style_preset": "历史纪录片风格", "characters": ["玄奘高僧"], "grid": [{"position": 0, "beat_id": "beat_011", "anchor_type": "PROTAGONIST_STATUS", "intensity": "LOW", "emotion": "HOPEFUL", "prompt": "历史纪录片风格，中景镜头，7世纪唐代长安城门。玄奘高僧，身穿赭红色僧袍，庄严神圣，站在城门前。自然阳光从天空射入，在朱红色城墙上形成温暖的光影。朱红色和黄色的色调，宏伟城门、佛塔，繁华宏大的氛围。光圈 f/5.6，ISO 400，电影质感。", "metadata": {"character_id": "xuanzang_645", "clothing_id": "tang_dynasty_monk_robe", "architecture_id": "tang_chang_an_city_gate"}}, {"position": 1, "beat_id": "beat_012", "anchor_type": "INCITING_EVENT", "intensity": "HIGH", "emotion": "DRAMATIC", "prompt": "历史纪录片风格，近景镜头，7世纪唐代长安城门。玄奘高僧手捧梵文佛经，神情庄重，即将踏入长安城。阳光在佛经上形成金色光晕，象征佛法的珍贵。赭红色和黄色的色调，神圣庄严的氛围。光圈 f/2.8，ISO 400，电影质感。", "metadata": {"character_id": "xuanzang_645", "clothing_id": "tang_dynasty_monk_robe", "architecture_id": "tang_chang_an_city_gate"}}], "metadata": {"era": "唐代（7世纪）", "date": "公元645年2月25日", "event": "玄奘取经归来", "anchor_points_count": 2, "continuity_check": {"overall_result": "PASS", "score": 91}}}, "sequence_boards": [{"group_id": "sequence_group_03", "anchor_beat_id": "beat_011", "reference_beat_image": "beat_board_10.png", "structure": "起—承—转—合", "grid_size": 4, "inheritance": {"character": "玄奘高僧", "clothing": "赭红色僧袍", "location": "长安城门", "lighting": "自然阳光", "atmosphere": "庄严神圣"}, "shots": [{"position": 0, "shot_type": "起", "prompt": "长安城门，晴朗天空，清晨阳光。玄奘高僧从远方走来，身穿赭红色僧袍，庄严神圣，手持佛经卷轴。庄严而神圣的氛围，佛教文化的气息弥漫。自然阳光射入，在朱红色城墙上形成明亮光影，背景是宏伟的城门和佛塔，视觉焦点在玄奘的面部。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "start", "axis_management": "established"}}, {"position": 1, "shot_type": "承", "prompt": "玄奘高僧走近长安城门，城门口的士兵恭敬地让路。玄奘神情庄重，步伐坚定，即将完成17年的取经之旅。自然阳光在佛经上形成金色光晕，象征佛法的珍贵。赭红色和黄色的色调，庄严神圣的氛围。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "middle", "axis_management": "maintained"}}, {"position": 2, "shot_type": "转", "prompt": "玄奘高僧踏入长安城，完成取经之旅的最后一程。长安城的繁华景象展现在眼前，佛塔林立，建筑宏伟。强烈的对比光在玄奘脸上形成戏剧性的效果，17年艰辛的历程在这一刻得到回报。赭红色和黄色的色调，神圣庄严的氛围达到高潮。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "climax", "axis_management": "maintained"}}, {"position": 3, "shot_type": "合", "prompt": "玄奘高僧站在长安城内，神情欣慰，看着熟悉的建筑和街道。17年的取经之旅终于结束，他带回了657部梵文佛经。柔和的自然光在长安城内形成和谐的氛围，赭红色和黄色的色调，佛教文化的传承和希望。", "continuity_check": {"screen_direction": "consistent", "action_continuity": "aftermath", "axis_management": "stable"}}], "metadata": {"continuity_check_report": {"overall_result": "PASS", "score": 90, "issues": [], "warnings": ["Shot 2-1到2-2的景别变化稍快"]}}}], "quality_metrics": {"prompt_quality": {"avg_score": 91, "dimensions": {"conciseness": 88, "fluency": 90, "professionalism": 92, "accuracy": 94}}, "continuity_check": {"avg_score": 90, "dimensions": {"character_consistency": 92, "scene_consistency": 88, "visual_continuity": 90, "historical_accuracy": 94}}}, "metadata": {"era": "唐代（7世纪）", "historical_accuracy": "100%", "feature_sources": {"character": "historical_characters.json", "clothing": "historical_costumes.json", "architecture": "historical_architecture.json"}}}], "overall_metrics": {"total_events": 13, "processed_events": 2, "avg_prompt_quality": 92, "avg_continuity_score": 91.5, "historical_accuracy": "100%", "feature_library_coverage": {"characters": 10, "costumes": 10, "architecture": 7, "locations": 10, "total_coverage": "100%"}}, "metadata": {"generated_by": "shot-list-skill v2.1", "generation_method": "分层渐进式历史分镜系统", "quality_assurance": {"prompt_quality_threshold": 90, "continuity_check_threshold": 90, "historical_accuracy_threshold": 95}}}
+{
+  "meta": {
+    "project_name": "历史上的今天",
+    "episode": "2026-02-25",
+    "total_duration": 420,
+    "shot_count": 36,
+    "created_at": "2026-02-27",
+    "cost_estimate": {
+      "seedance_shots": 14,
+      "ffmpeg_shots": 22,
+      "estimated_cost_yuan": 14
+    },
+    "global_assets": {
+      "bgm": {
+        "path": "assets/bgm/documentary_ambient.mp3",
+        "volume": 0.3,
+        "ducking": true,
+        "ducking_ratio": 0.2
+      },
+      "fonts": {
+        "title": "assets/fonts/NotoSerifSC-Bold.otf",
+        "subtitle": "assets/fonts/NotoSansSC-Regular.otf"
+      },
+      "logo": "assets/images/logo.png"
+    },
+    "style_preset": {
+      "visual_style": "历史纪录片风格",
+      "color_grading": "暖色调，电影质感",
+      "transition_default": "dissolve"
+    },
+    "storage": {
+      "type": "local",
+      "base_path": "outputs/demo/"
+    },
+    "audio_mix": {
+      "normalize_voice": true,
+      "bgm_ducking": true
+    }
+  },
+  "shots": [
+    {
+      "shot_id": "shot_001",
+      "time_code": "00:00-00:08",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "节目标题卡",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，标题卡片设计。中央大字\"历史上的今天\"，下方副标题\"2026年2月25日\"。金色边框装饰，背景是历史时光隧道效果，展现从古代到现代的时间流动。电影质感，16:9横屏，庄重大气。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": true
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_001.png",
+            "duration": 8,
+            "zoom_start": 1,
+            "zoom_end": 1.15,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>大家好！欢迎收听《历史上的今天》节目。今天是2026年2月25日，星期三。</prosody></voice></speak>",
+          "text": "大家好！欢迎收听《历史上的今天》节目。今天是2026年2月25日，星期三。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_002",
+      "time_code": "00:08-00:16",
+      "duration": 8,
+      "type": "transition",
+      "era": null,
+      "description": "历史长河开篇",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，历史长河画面。流动的时间长河，星光闪烁，展现从古代到现代的历史进程。金色光点标记重要时刻。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_002.png",
+            "duration": 8,
+            "zoom_start": 1,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>在人类漫长的历史长河中，某些特定的日期总会闪烁着熠熠生辉的光芒。这些日期见证了帝国的兴衰、文明的交融、科技的进步和时代的更替。</prosody></voice></speak>",
+          "text": "在人类漫长的历史长河中，某些特定的日期总会闪烁着熠熠生辉的光芒。这些日期见证了帝国的兴衰、文明的交融、科技的进步和时代的更替。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_003",
+      "time_code": "00:16-00:24",
+      "duration": 8,
+      "type": "transition",
+      "era": null,
+      "description": "时间跨度预告",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，横向时间轴画面。背景是深邃的宇宙星空。时间轴从左到右延伸，标记了公元138年（罗马帝国）、628年（波斯萨珊）、645年（玄奘取经）、1836年（左轮手枪）、1901年（美国钢铁）、1921年（苏联扩张）、1961年（科威特独立）、1980年（苏里南**）、2026年（中国外交部）。每个年份用金色光点标记，金色光芒连接各个光点，展现历史进程。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "pan_right",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_003.png",
+            "duration": 8,
+            "pan_x_start": 0.1,
+            "pan_x_end": 0.9,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>今天，我们将穿越近2000年的时间隧道，从古罗马帝国的权力交接，经过中国唐代的文化传播，来到近现代的工业革命，最后回到当代世界的政治舞台。</prosody></voice></speak>",
+          "text": "今天，我们将穿越近2000年的时间隧道，从古罗马帝国的权力交接，经过中国唐代的文化传播，来到近现代的工业革命，最后回到当代世界的政治舞台。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_004",
+      "time_code": "00:24-00:30",
+      "duration": 6,
+      "type": "title_card",
+      "era": null,
+      "description": "第一部分标题",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，章节标题卡片。中央大字\"第一部分：古代历史的见证\"。金色边框装饰，背景是古代建筑的轮廓剪影。电影质感，16:9横屏，庄重大气。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": true
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_004.png",
+            "duration": 6,
+            "zoom_start": 1,
+            "zoom_end": 1.12,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>亲爱的听众，我们首先把目光投向古罗马帝国。在公元138年的这一天，发生了一件关系到帝国未来的大事。</prosody></voice></speak>",
+          "text": "亲爱的听众，我们首先把目光投向古罗马帝国。在公元138年的这一天，发生了一件关系到帝国未来的大事。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_005",
+      "time_code": "00:30-00:44",
+      "duration": 14,
+      "type": "historical_scene",
+      "era": "公元138年",
+      "description": "古罗马哈德良皇帝",
+      "character_id": "hadrian_138",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，古罗马帝国宫廷，公元138年。哈德良皇帝身着紫色镶边托加长袍，头戴橄榄枝冠冕，面容威严而苍老，坐在大理石宝座上。宫廷内罗马柱林立，马赛克地板，墙上挂着罗马鹰旗。温暖的地中海阳光从高窗射入，形成戏剧性光影。电影质感，历史写实风格，16:9横屏，庄严肃穆。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 1380225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_005.png",
+            "motion_prompt": "镜头缓慢推进，从宫廷入口移动到皇帝身边，时长14秒。皇帝缓缓抬起头，目光深邃，右手微微抬起做出决定的手势。阳光在宫殿内缓慢移动，照亮他的脸庞。尘埃在光柱中缓缓飘动。节奏庄重缓慢，营造历史厚重感。",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 1380225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>根据历史记载，卢基乌斯·埃利乌斯去世以后，罗马皇帝哈德良做出了一个重大的决定——他收养并指定安敦宁·毕尤为帝国的继承人。这一决定标志着罗马帝国权力的平稳过渡，关系到帝国数百万臣民的未来走向。</prosody></voice></speak>",
+          "text": "根据历史记载，卢基乌斯·埃利乌斯去世以后，罗马皇帝哈德良做出了一个重大的决定——他收养并指定安敦宁·毕尤为帝国的继承人。这一决定标志着罗马帝国权力的平稳过渡，关系到帝国数百万臣民的未来走向。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_006",
+      "time_code": "00:44-00:56",
+      "duration": 12,
+      "type": "historical_scene",
+      "era": "公元628年",
+      "description": "波斯萨珊王朝权力争斗",
+      "character_id": "kavad_628",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，波斯萨珊王朝宫殿，公元628年。喀瓦德二世王子身披波斯战甲，手持弯刀，面容坚毅，站在王座前。霍斯劳二世国王身着华丽王袍，坐在波斯王座上，神情愤怒。宫殿内波斯风格装饰，色彩斑斓的马赛克墙面，金色的穹顶。波斯地毯铺地。电影质感，历史写实风格，16:9横屏，紧张对峙。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 6280225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_006.png",
+            "motion_prompt": "镜头缓慢拉近，聚焦在两位主角之间的紧张对峙，时长12秒。喀瓦德王子向前迈出一步，霍斯劳二世愤怒地站起身。宫殿内的火炬闪烁，光线在两人之间跳动。节奏紧张，营造权力争斗的氛围。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 6280225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>到了公元7世纪初，波斯的萨珊王朝同样经历了权力的更替。在这一天，根据历史记载，萨珊王朝王子喀瓦德二世向国王霍斯劳二世发动了一场权力之争。</prosody></voice></speak>",
+          "text": "到了公元7世纪初，波斯的萨珊王朝同样经历了权力的更替。在这一天，根据历史记载，萨珊王朝王子喀瓦德二世向国王霍斯劳二世发动了一场权力之争。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_007",
+      "time_code": "00:56-01:04",
+      "duration": 8,
+      "type": "transition",
+      "era": null,
+      "description": "古代权力交接总结",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，象征性画面。左右两侧分别是罗马帝国和波斯帝国的标志性建筑轮廓，中间是一条连接的时间线。金色光芒在两国之间流动。电影质感，16:9横屏，历史厚重感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "static",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_007.png",
+            "duration": 8,
+            "zoom_start": 1,
+            "zoom_end": 1.02,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>这些古代帝国的权力交接事件，虽然相隔千年，却都体现了同样的历史规律——当旧的统治者退出舞台时，新的力量必然会站起来。</prosody></voice></speak>",
+          "text": "这些古代帝国的权力交接事件，虽然相隔千年，却都体现了同样的历史规律——当旧的统治者退出舞台时，新的力量必然会站起来。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_008",
+      "time_code": "01:04-01:10",
+      "duration": 6,
+      "type": "title_card",
+      "era": null,
+      "description": "第二部分标题",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，章节标题卡片。中央大字\"第二部分：中国古代的文化高峰\"。金色边框装饰，背景是中国古代建筑和佛寺的轮廓剪影。电影质感，16:9横屏，庄重大气。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": true
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_008.png",
+            "duration": 6,
+            "zoom_start": 1,
+            "zoom_end": 1.12,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>现在，让我们把目光转向东方的中国。这一年发生了一件改变中国文化历史的伟大事件。</prosody></voice></speak>",
+          "text": "现在，让我们把目光转向东方的中国。这一年发生了一件改变中国文化历史的伟大事件。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_009",
+      "time_code": "01:10-01:24",
+      "duration": 14,
+      "type": "historical_scene",
+      "era": "公元645年",
+      "description": "玄奘高僧到达长安",
+      "character_id": "xuanzang_645",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，唐代长安城城门，公元645年。玄奘高僧身着袈裟，手持锡杖，背着沉重的行囊，面容憔悴但眼神坚毅，站在长安城门下。城门巍峨高大，上方写着\"长安\"二字。城门口有守卫和百姓迎接。唐代建筑风格，红色城墙，金色瓦顶。阳光明媚，尘埃在光线中飞舞。电影质感，历史写实风格，16:9横屏，庄严感人。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 6450225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_009.png",
+            "motion_prompt": "镜头从玄奘的背影缓慢推进，展现他走进长安城门的画面，时长14秒。玄奘缓缓迈步，锡杖轻轻敲击地面，步伐坚定。城门开启，阳光洒在他身上。远处长安城的繁华景象逐渐显露。节奏庄重缓慢，营造历史厚重感。",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 6450225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>645年2月25日这一天，唐代著名的高僧玄奘携带着梵文佛经657部和各种珍贵的佛像，终于回到了唐帝国的首都长安，也就是今天的西安。</prosody></voice></speak>",
+          "text": "645年2月25日这一天，唐代著名的高僧玄奘携带着梵文佛经657部和各种珍贵的佛像，终于回到了唐帝国的首都长安，也就是今天的西安。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_010",
+      "time_code": "01:24-01:38",
+      "duration": 14,
+      "type": "historical_scene",
+      "era": "公元645年",
+      "description": "玄奘高僧翻译佛经",
+      "character_id": "xuanzang_645",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，唐代大慈恩寺译经堂，公元645年。玄奘高僧坐在案前，手持毛笔，正在翻译梵文佛经。案上堆满了梵文经卷和中文译稿。几名弟子在一旁协助整理。译经堂内光线柔和，烛台摇曳。唐代建筑风格，木柱横梁，雕花装饰。电影质感，历史写实风格，16:9横屏，专注宁静。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": "shot_009.png",
+            "seed": 6450225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_010.png",
+            "motion_prompt": "镜头缓慢推进，聚焦在玄奘专注的神情上，时长14秒。玄奘缓缓移动毛笔，认真翻译经文。烛光在墙面投下跳动的影子。弟子们轻轻翻动经卷。节奏宁静缓慢，营造专注的氛围。",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 6450225,
+            "reference_image": "shot_009.png",
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>这位伟大的求知者从唐贞观三年，也就是公元629年出发，经历了整整17年的艰苦跋涉。他穿越了沙漠、越过了高山、经历了无数的危险和挑战，最终满载而归。回到长安之后，玄奘又用20年的时间，翻译出了75部、共1335卷的佛经论著。</prosody></voice></speak>",
+          "text": "这位伟大的求知者从唐贞观三年，也就是公元629年出发，经历了整整17年的艰苦跋涉。他穿越了沙漠、越过了高山、经历了无数的危险和挑战，最终满载而归。回到长安之后，玄奘又用20年的时间，翻译出了75部、共1335卷的佛经论著。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": "shot_009.png",
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_011",
+      "time_code": "01:38-01:50",
+      "duration": 12,
+      "type": "historical_scene",
+      "era": "1398年",
+      "description": "明宣宗朱瞻基诞生",
+      "character_id": "zhuzhanji_1398",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，明朝皇宫内室，1398年。华丽的明代床榻上，襁褓中的婴儿朱瞻基正在安睡。几位宫女和太医在一旁守候。室内明代建筑风格，雕花木柱，绣帐垂落，香炉青烟袅袅。温暖的烛光照亮婴儿的脸庞。电影质感，历史写实风格，16:9横屏，温馨宁静。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 13980225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_011.png",
+            "motion_prompt": "镜头缓慢推进，聚焦在婴儿安睡的脸庞上，时长12秒。婴儿微微呼吸，小手偶尔轻动。宫女们轻声细语，太医查看婴儿的情况。烛光柔和摇曳。节奏宁静缓慢，营造温馨的氛围。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 13980225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>转眼来到了中国的明朝时代。1398年2月25日这一天，一位日后将对明朝历史产生重大影响的皇帝诞生了——他就是明宣宗朱瞻基。朱瞻基在位期间，开创了\"宣德中兴\"局面，使得明朝再次走向繁荣。</prosody></voice></speak>",
+          "text": "转眼来到了中国的明朝时代。1398年2月25日这一天，一位日后将对明朝历史产生重大影响的皇帝诞生了——他就是明宣宗朱瞻基。朱瞻基在位期间，开创了\"宣德中兴\"局面，使得明朝再次走向繁荣。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_012",
+      "time_code": "01:50-02:00",
+      "duration": 10,
+      "type": "historical_scene",
+      "era": "1577年",
+      "description": "瑞典国王埃里克十四世",
+      "character_id": "eric_xiv_1577",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，瑞典王宫，1577年。埃里克十四世国王身披欧洲文艺复兴时期的华丽长袍，头戴王冠，神情焦虑和沮丧，坐在王座上。王宫内欧洲文艺复兴风格装饰，金色穹顶，彩色玻璃窗。窗外阴云密布，光线昏暗。电影质感，历史写实风格，16:9横屏，压抑沉重。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 15770225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_012.png",
+            "motion_prompt": "镜头缓慢拉远，展现国王孤独的身影，时长10秒。埃里克十四世双手抱头，神情痛苦。窗外的乌云在移动，闪电偶尔闪过。宫殿内的阴影在变化。节奏沉重缓慢，营造衰落的氛围。",
+            "duration": 10,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 15770225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>在欧洲，1577年这一年，瑞典历史上发生了与国王埃里克十四世相关的重要事件。埃里克十四世是瑞典历史上著名的文艺复兴时期的国王，他在与丹麦、波兰等国的战争中表现活跃，但最终因其激进的政策而遭到贵族反对，最终在国内权力斗争中走向衰落。</prosody></voice></speak>",
+          "text": "在欧洲，1577年这一年，瑞典历史上发生了与国王埃里克十四世相关的重要事件。埃里克十四世是瑞典历史上著名的文艺复兴时期的国王，他在与丹麦、波兰等国的战争中表现活跃，但最终因其激进的政策而遭到贵族反对，最终在国内权力斗争中走向衰落。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_013",
+      "time_code": "02:00-02:10",
+      "duration": 10,
+      "type": "historical_scene",
+      "era": "1643年",
+      "description": "奥斯曼帝国艾哈迈德二世诞生",
+      "character_id": "ahmed_ii_1643",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，奥斯曼帝国皇宫，1643年。华丽的奥斯曼床榻上，襁褓中的婴儿艾哈迈德二世正在安睡。几位奥斯曼贵族和宫女在一旁守候。室内奥斯曼建筑风格，彩色瓷砖装饰，华丽的地毯，香炉青烟袅袅。温暖的阳光从窗棂射入，照亮婴儿的脸庞。电影质感，历史写实风格，16:9横屏，华丽温馨。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 16430225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_013.png",
+            "motion_prompt": "镜头缓慢推进，聚焦在婴儿安睡的脸庞上，时长10秒。婴儿微微呼吸，小手偶尔轻动。宫女们轻声细语，贵族们露出喜悦的表情。阳光在彩色瓷砖上投下花纹。节奏宁静缓慢，营造温馨的氛围。",
+            "duration": 10,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 16430225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>在奥斯曼帝国，1643年2月25日迎来了一位新的统治者的诞生。奥斯曼帝国苏丹艾哈迈德二世在这一天诞生。艾哈迈德二世是奥斯曼帝国的一位重要苏丹，他在位期间经历了与威尼斯的战争，并扩大了帝国的领土。</prosody></voice></speak>",
+          "text": "在奥斯曼帝国，1643年2月25日迎来了一位新的统治者的诞生。奥斯曼帝国苏丹艾哈迈德二世在这一天诞生。艾哈迈德二世是奥斯曼帝国的一位重要苏丹，他在位期间经历了与威尼斯的战争，并扩大了帝国的领土。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_014",
+      "time_code": "02:10-02:22",
+      "duration": 12,
+      "type": "historical_scene",
+      "era": "1682年",
+      "description": "六世达赖喇嘛仓央嘉措",
+      "character_id": "tsangyang_1682",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，西藏布达拉宫，1682年。仓央嘉措喇嘛身着红色袈裟，手持念珠，面容英俊而忧郁，坐在布达拉宫的露台上。身后是雄伟的布达拉宫建筑群，金色屋顶在阳光下闪耀。远处的雪山连绵，蓝天白云。高原阳光强烈，空气稀薄透明。电影质感，历史写实风格，16:9横屏，神秘诗意。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 16820225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_014.png",
+            "motion_prompt": "镜头缓慢环绕，展现仓央嘉措和背后的布达拉宫，时长12秒。仓央嘉措缓缓转动念珠，目光望向远处的雪山。风经幡在风中飘扬。云朵在蓝天中缓慢移动。节奏诗意缓慢，营造神秘的氛围。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 16820225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>在世界的东方，西藏地区在这一天与著名的宗教领袖产生了联系。六世达赖喇嘛仓央嘉措是西藏历史上最富有传奇色彩的宗教人物之一。仓央嘉措以其卓越的学问和开放的思想而闻名。他既是宗教领袖，也是诗人和思想家。他创作的情诗在西藏广为流传，至今仍然被人们传诵。</prosody></voice></speak>",
+          "text": "在世界的东方，西藏地区在这一天与著名的宗教领袖产生了联系。六世达赖喇嘛仓央嘉措是西藏历史上最富有传奇色彩的宗教人物之一。仓央嘉措以其卓越的学问和开放的思想而闻名。他既是宗教领袖，也是诗人和思想家。他创作的情诗在西藏广为流传，至今仍然被人们传诵。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_015",
+      "time_code": "02:22-02:30",
+      "duration": 8,
+      "type": "transition",
+      "era": null,
+      "description": "古代事件总结",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，欧亚大陆地图。地图上标记了罗马帝国、波斯帝国、中国长安、瑞典、奥斯曼帝国、西藏布达拉宫的位置。金色光点连接各个地点，展现历史足迹的分布。背景是深邃的历史纹理。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_015.png",
+            "duration": 8,
+            "zoom_start": 1,
+            "zoom_end": 1.15,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>这些古代的事件，跨越了欧亚大陆，从西方的罗马和欧洲，到东方的中国和西藏，都在2月25日这一天留下了历史的足迹。</prosody></voice></speak>",
+          "text": "这些古代的事件，跨越了欧亚大陆，从西方的罗马和欧洲，到东方的中国和西藏，都在2月25日这一天留下了历史的足迹。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_016",
+      "time_code": "02:30-02:36",
+      "duration": 6,
+      "type": "title_card",
+      "era": null,
+      "description": "第三部分标题",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，章节标题卡片。中央大字\"第三部分：工业**与近现代的创新\"。金色边框装饰，背景是工厂、蒸汽机、钢铁等工业元素的轮廓剪影。电影质感，16:9横屏，庄重大气。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": true
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_016.png",
+            "duration": 6,
+            "zoom_start": 1,
+            "zoom_end": 1.12,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>时间跳跃到了近代。1836年2月25日，一项影响深远的技术发明诞生了。</prosody></voice></speak>",
+          "text": "时间跳跃到了近代。1836年2月25日，一项影响深远的技术发明诞生了。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_017",
+      "time_code": "02:36-02:50",
+      "duration": 14,
+      "type": "historical_scene",
+      "era": "1836年",
+      "description": "塞缪尔·柯尔特发明左轮手枪",
+      "character_id": "colt_1836",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，19世纪美国工厂，1836年。塞缪尔·柯尔特身着19世纪工装，手持一把精致的左轮手枪，站在工作台前。工作台上摆放着图纸、零件和工具。工厂内高耸的烟囱，钢铁框架，蒸汽管道。工业时代的粗犷氛围。电影质感，历史写实风格，16:9横屏，工业氛围。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 18360225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_017.png",
+            "motion_prompt": "镜头缓慢推进，聚焦在柯尔特手中的左轮手枪上，时长14秒。柯尔特仔细检查手枪的每一个零件，神情专注。工厂背景中蒸汽在升腾，工人们在工作。光影变化展现工业时代的活力。节奏专业缓慢，营造创新氛围。",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 18360225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>根据权威记载，美国发明家塞缪尔·柯尔特在这一天改进了左轮手枪的设计，并在美国、英国和法国等多个国家同时申请了专利。这款后来被称为\"柯尔特派特森左轮手枪\"的革命性武器，可以装填5发子弹，代表了当时火器技术的重大进步。</prosody></voice></speak>",
+          "text": "根据权威记载，美国发明家塞缪尔·柯尔特在这一天改进了左轮手枪的设计，并在美国、英国和法国等多个国家同时申请了专利。这款后来被称为\"柯尔特派特森左轮手枪\"的革命性武器，可以装填5发子弹，代表了当时火器技术的重大进步。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_018",
+      "time_code": "02:50-03:04",
+      "duration": 14,
+      "type": "historical_scene",
+      "era": "1901年",
+      "description": "摩根创办美国钢铁公司",
+      "character_id": "morgon_1901",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，19世纪末美国金融大厦，1901年。约翰·皮尔庞特·摩根身着西装，坐在办公桌前，身后是巨大的钢铁工厂壁画。办公桌上堆满了文件和合同。华尔街办公室内，高大的窗户，水晶吊灯，厚重的书桌。阳光从窗外射入，形成明亮的商业氛围。电影质感，历史写实风格，16:9横屏，商业帝国。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 19010225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_018.png",
+            "motion_prompt": "镜头缓慢推进，聚焦在摩根签署文件的瞬间，时长14秒。摩根拿起钢笔，郑重地在合同上签字。窗外的阳光在文件上移动，照亮签名的时刻。背景中钢铁工厂的壁画仿佛在燃烧。节奏庄重有力，营造商业帝国的氛围。",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 19010225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>19世纪末，美国工业发展到了一个关键时期。1901年2月25日，美国金融界的巨人约翰·皮尔庞特·摩根做出了一个震撼世界的决定——他创办了美国钢铁公司。这是美国历史上一次规模最大的企业整合。摩根先生收购了钢铁大王安德鲁·卡内基的整个钢铁帝国，价格达到4.8亿美元。</prosody></voice></speak>",
+          "text": "19世纪末，美国工业发展到了一个关键时期。1901年2月25日，美国金融界的巨人约翰·皮尔庞特·摩根做出了一个震撼世界的决定——他创办了美国钢铁公司。这是美国历史上一次规模最大的企业整合。摩根先生收购了钢铁大王安德鲁·卡内基的整个钢铁帝国，价格达到4.8亿美元。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_019",
+      "time_code": "03:04-03:14",
+      "duration": 10,
+      "type": "historical_scene",
+      "era": "1921年",
+      "description": "苏联红军攻占格鲁吉亚",
+      "character_id": null,
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，格鲁吉亚第比利斯街道，1921年。苏联红军士兵身穿军装，手持步枪，列队行进在第比利斯街道上。街道两旁是格鲁吉亚风格的建筑。天空灰暗，旗帜飘扬。人群在街道两旁观望。电影质感，历史写实风格，16:9横屏，历史变迁。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 19210225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_019.png",
+            "motion_prompt": "镜头从高处俯视，展现红军队伍在街道上行进的画面，时长10秒。红军士兵步伐整齐，旗帜在风中飘扬。街道两旁的人群表情复杂。云层在天空移动，光线时明时暗。节奏沉稳有力，营造历史变迁的氛围。",
+            "duration": 10,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 19210225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>在俄罗斯十月革命之后，苏联正在进行领土扩张和社会改造。1921年2月25日，在高加索地区发生了一件重要的地缘政治事件。格鲁吉亚苏维埃社会主义共和国正式成立。苏联红军攻占了格鲁吉亚首都第比利斯，推翻了格鲁吉亚民主共和国政权，建立了苏维埃政权。</prosody></voice></speak>",
+          "text": "在俄罗斯十月革命之后，苏联正在进行领土扩张和社会改造。1921年2月25日，在高加索地区发生了一件重要的地缘政治事件。格鲁吉亚苏维埃社会主义共和国正式成立。苏联红军攻占了格鲁吉亚首都第比利斯，推翻了格鲁吉亚民主共和国政权，建立了苏维埃政权。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_020",
+      "time_code": "03:14-03:24",
+      "duration": 10,
+      "type": "historical_scene",
+      "era": "1961年",
+      "description": "科威特宣布独立",
+      "character_id": null,
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，科威特首都科威特城，1961年。科威特王宫前，举行独立庆典仪式。科威特国旗飘扬，礼炮鸣响。人群聚集庆祝，手持旗帜和横幅。王宫建筑华丽，沙漠阳光明媚。电影质感，历史写实风格，16:9横屏，独立庆典。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 19610225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_020.png",
+            "motion_prompt": "镜头缓慢拉远，展现庆典的全貌，时长10秒。礼炮鸣响，彩带飘落。人群欢呼雀跃，国旗在风中飘扬。阳光明媚，沙漠的热浪在远方升起。节奏欢快热烈，营造独立庆典的氛围。",
+            "duration": 10,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 19610225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>来到20世纪中期，中东地区发生了深刻的变化。1961年2月25日，科威特宣布独立，这一天被定为科威特的国庆日。科威特在这之前长期受到英国的保护，被称为英国的\"保护国\"。独立后，科威特逐渐发展成为中东地区的重要经济体，其丰富的石油资源使其成为了全球能源市场中的重要的一员。</prosody></voice></speak>",
+          "text": "来到20世纪中期，中东地区发生了深刻的变化。1961年2月25日，科威特宣布独立，这一天被定为科威特的国庆日。科威特在这之前长期受到英国的保护，被称为英国的\"保护国\"。独立后，科威特逐渐发展成为中东地区的重要经济体，其丰富的石油资源使其成为了全球能源市场中的重要的一员。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_021",
+      "time_code": "03:24-03:34",
+      "duration": 10,
+      "type": "historical_scene",
+      "era": "1980年",
+      "description": "苏里南武装革命",
+      "character_id": null,
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，苏里南首都帕拉马里博，1980年。**军士兵手持武器，在政府大楼前集结。人群在街道上抗议，高举横幅和旗帜。热带雨林气候，阳光强烈，云层厚重。电影质感，历史写实风格，16:9横屏，**氛围。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 19800225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_021.png",
+            "motion_prompt": "镜头在人群中穿梭，展现革命的紧张氛围，时长10秒。革命军士兵行进，人群高呼口号。云层在天空中快速移动，雨滴开始落下。节奏紧张有力，营造革命的氛围。",
+            "duration": 10,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 19800225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>同样在2月25日，苏里南历史上也发生了重要事件。1980年的武装革命运动之后，苏里南确立了革命日，将2月25日定为这个国家的重要纪念日。苏里南是南美洲最小的独立国家，这次革命改变了这个国家的政治制度，标志着苏里南从殖民地走向独立自主的重要转折点。</prosody></voice></speak>",
+          "text": "同样在2月25日，苏里南历史上也发生了重要事件。1980年的武装革命运动之后，苏里南确立了革命日，将2月25日定为这个国家的重要纪念日。苏里南是南美洲最小的独立国家，这次革命改变了这个国家的政治制度，标志着苏里南从殖民地走向独立自主的重要转折点。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_022",
+      "time_code": "03:34-03:42",
+      "duration": 8,
+      "type": "transition",
+      "era": null,
+      "description": "近现代主题总结",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，三大主题象征画面。左侧是工业**的蒸汽机和工厂，中间是帝国扩张的地图和旗帜，右侧是民族独立的庆祝场景。金色光芒连接三个主题，展现历史的交织。电影质感，16:9横屏，历史厚重感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "pan_right",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_022.png",
+            "duration": 8,
+            "pan_x_start": 0.1,
+            "pan_x_end": 0.9,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>这些近现代的事件，展现了工业革命、帝国扩张和民族独立运动这三大历史主题的交织。它们共同塑造了我们现在生活的现代世界。</prosody></voice></speak>",
+          "text": "这些近现代的事件，展现了工业革命、帝国扩张和民族独立运动这三大历史主题的交织。它们共同塑造了我们现在生活的现代世界。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_023",
+      "time_code": "03:42-03:48",
+      "duration": 6,
+      "type": "title_card",
+      "era": null,
+      "description": "第四部分标题",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，章节标题卡片。中央大字\"第四部分：当代的国际关系\"。金色边框装饰，背景是联合国大厦、外交会议等现代政治元素的轮廓剪影。电影质感，16:9横屏，庄重大气。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": true
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_023.png",
+            "duration": 6,
+            "zoom_start": 1,
+            "zoom_end": 1.12,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>现在，我们来看看就在今天发生的新闻。</prosody></voice></speak>",
+          "text": "现在，我们来看看就在今天发生的新闻。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_024",
+      "time_code": "03:48-04:04",
+      "duration": 16,
+      "type": "historical_scene",
+      "era": "2026年",
+      "description": "中国外交部发言人毛宁",
+      "character_id": "maoning_2026",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，中国外交部新闻发布厅，2026年。中国外交部发言人毛宁身着职业装，站在发布台前，神情坚定自信。发布台上有中国国旗标志和麦克风。背景是外交部标志和蓝色幕布。新闻发布厅内灯光明亮，专业的新闻环境。电影质感，现代纪实风格，16:9横屏，专业正式。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "seed": 20260225,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_024.png",
+            "motion_prompt": "镜头缓慢推进，聚焦在毛宁发言人坚定的神情上，时长16秒。毛宁微微调整姿态，目光坚定地看着前方，做出正式发言的手势。新闻发布厅的灯光稳定，背景微微虚化。节奏专业有力，营造外交正式的氛围。",
+            "duration": 16,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 20260225,
+            "reference_image": null,
+            "negative_prompt": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>根据人民网和外交部官方发布的信息，中国外交部发言人毛宁在今天的例行记者会上就美方关于中国核试验的指责做出了正式回应。毛宁发言人表示，美方的指责\"捕风捉影、遮遮掩掩，根本站不住脚\"。毛宁强调，中国一直坚持对外政策的基本原则，包括互相尊重主权和领土完整、互不侵犯、互不干涉内政、平等互利、和平共处。</prosody></voice></speak>",
+          "text": "根据人民网和外交部官方发布的信息，中国外交部发言人毛宁在今天的例行记者会上就美方关于中国核试验的指责做出了正式回应。毛宁发言人表示，美方的指责\"捕风捉影、遮遮掩掩，根本站不住脚\"。毛宁强调，中国一直坚持对外政策的基本原则，包括互相尊重主权和领土完整、互不侵犯、互不干涉内政、平等互利、和平共处。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_025",
+      "time_code": "04:04-04:14",
+      "duration": 10,
+      "type": "transition",
+      "era": null,
+      "description": "历史回顾过渡",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，历史长河的画面。流动的时间长河从古代流向现代，金色光点标记重要历史时刻。背景是深邃的历史纹理。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_025.png",
+            "duration": 10,
+            "zoom_start": 1,
+            "zoom_end": 1.15,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>亲爱的听众朋友们，今天我们走过了一段漫长而精彩的历史旅程。从公元138年罗马帝国哈德良皇帝的权力交接，到公元628年波斯萨珊王朝的内部权力争斗。</prosody></voice></speak>",
+          "text": "亲爱的听众朋友们，今天我们走过了一段漫长而精彩的历史旅程。从公元138年罗马帝国哈德良皇帝的权力交接，到公元628年波斯萨珊王朝的内部权力争斗。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_026",
+      "time_code": "04:14-04:26",
+      "duration": 12,
+      "type": "transition",
+      "era": null,
+      "description": "历史回顾续",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，历史长河的画面。流动的时间长河继续延伸，金色光点标记更多历史时刻。背景是深邃的历史纹理。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": "shot_025.png",
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "pan_right",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_026.png",
+            "duration": 12,
+            "pan_x_start": 0.2,
+            "pan_x_end": 0.8,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>从公元645年唐代高僧玄奘携带657部梵文佛经回到长安，到明朝、瑞典、奥斯曼帝国、西藏地区的重要人物和事件。</prosody></voice></speak>",
+          "text": "从公元645年唐代高僧玄奘携带657部梵文佛经回到长安，到明朝、瑞典、奥斯曼帝国、西藏地区的重要人物和事件。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": "shot_025.png",
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_027",
+      "time_code": "04:26-04:38",
+      "duration": 12,
+      "type": "transition",
+      "era": null,
+      "description": "历史回顾续",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，历史长河的画面。流动的时间长河继续延伸，金色光点标记更多历史时刻。背景是深邃的历史纹理。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": "shot_026.png",
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "pan_right",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_027.png",
+            "duration": 12,
+            "pan_x_start": 0.3,
+            "pan_x_end": 0.9,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>从1836年美国发明家塞缪尔·柯尔特获得左轮手枪专利，推动武器技术进步，到1901年约翰·皮尔庞特·摩根创办美国钢铁公司，开创企业集团时代。</prosody></voice></speak>",
+          "text": "从1836年美国发明家塞缪尔·柯尔特获得左轮手枪专利，推动武器技术进步，到1901年约翰·皮尔庞特·摩根创办美国钢铁公司，开创企业集团时代。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": "shot_026.png",
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_028",
+      "time_code": "04:38-04:50",
+      "duration": 12,
+      "type": "transition",
+      "era": null,
+      "description": "历史回顾续",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，历史长河的画面。流动的时间长河继续延伸，金色光点标记更多历史时刻。背景是深邃的历史纹理。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": "shot_027.png",
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "pan_right",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_028.png",
+            "duration": 12,
+            "pan_x_start": 0.4,
+            "pan_x_end": 1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>从1921年苏联红军进军格鲁吉亚，标志着苏联的地缘战略扩张，到1961年科威特宣布独立，1980年苏里南的武装革命，新兴国家纷纷走向独立和自强。</prosody></voice></speak>",
+          "text": "从1921年苏联红军进军格鲁吉亚，标志着苏联的地缘战略扩张，到1961年科威特宣布独立，1980年苏里南的武装革命，新兴国家纷纷走向独立和自强。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": "shot_027.png",
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_029",
+      "time_code": "04:50-05:00",
+      "duration": 10,
+      "type": "transition",
+      "era": null,
+      "description": "历史回顾续",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，历史长河的画面。流动的时间长河到达现代，金色光点标记当代历史时刻。背景是深邃的历史纹理。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": "shot_028.png",
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_029.png",
+            "duration": 10,
+            "zoom_start": 1,
+            "zoom_end": 1.2,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>再到今天2026年2月25日，中国外交部在国际舞台上的政治宣示，体现了当代大国外交的真实写照。</prosody></voice></speak>",
+          "text": "再到今天2026年2月25日，中国外交部在国际舞台上的政治宣示，体现了当代大国外交的真实写照。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": "shot_028.png",
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_030",
+      "time_code": "05:00-05:10",
+      "duration": 10,
+      "type": "transition",
+      "era": null,
+      "description": "历史意义总结",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，象征性画面。地球在宇宙中旋转，不同年代的历史事件如同星光般闪烁。金色光芒连接各个时代，展现人类文明的进步。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_030.png",
+            "duration": 10,
+            "zoom_start": 1,
+            "zoom_end": 1.15,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>2月25日这一天，跨越了近2000年的历史，跨越了欧洲、亚洲、美洲等世界各地，见证了人类文明在政治、军事、经济、宗教和文化等各个领域的发展和进步。</prosody></voice></speak>",
+          "text": "2月25日这一天，跨越了近2000年的历史，跨越了欧洲、亚洲、美洲等世界各地，见证了人类文明在政治、军事、经济、宗教和文化等各个领域的发展和进步。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_031",
+      "time_code": "05:10-05:22",
+      "duration": 12,
+      "type": "transition",
+      "era": null,
+      "description": "历史启示",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，象征性画面。古老的书籍展开，文字从书页中飞出，化作金色的光芒。背景是图书馆或历史档案馆。电影质感，16:9横屏，智慧启迪。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_031.png",
+            "duration": 12,
+            "zoom_start": 1,
+            "zoom_end": 1.2,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>每一个历史事件，都是人类社会向前发展的一个脚步。每一个历史时刻，都承载着过去的教训和未来的启示。每一位历史人物，从古罗马的皇帝到唐代的高僧，从美国的发明家到现代的政治领导人，都在用他们的行动书写着人类进步的篇章。</prosody></voice></speak>",
+          "text": "每一个历史事件，都是人类社会向前发展的一个脚步。每一个历史时刻，都承载着过去的教训和未来的启示。每一位历史人物，从古罗马的皇帝到唐代的高僧，从美国的发明家到现代的政治领导人，都在用他们的行动书写着人类进步的篇章。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_032",
+      "time_code": "05:22-05:34",
+      "duration": 12,
+      "type": "transition",
+      "era": null,
+      "description": "永恒价值",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，象征性画面。不同肤色、不同时代的人们手牵手，围成一个圆圈。背景是日出或和平鸽飞翔。电影质感，16:9横屏，和谐美好。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": false
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_032.png",
+            "duration": 12,
+            "zoom_start": 1,
+            "zoom_end": 1.2,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>历史告诉我们，时代在进步，社会在发展，但和平、合作、相互尊重这些永恒的价值始终是人类社会发展的基础。希望我们能够从历史中汲取智慧，为建设更加美好、更加和平的未来而不懈努力。</prosody></voice></speak>",
+          "text": "历史告诉我们，时代在进步，社会在发展，但和平、合作、相互尊重这些永恒的价值始终是人类社会发展的基础。希望我们能够从历史中汲取智慧，为建设更加美好、更加和平的未来而不懈努力。"
+        }
+      },
+      "transition": {
+        "type": "dissolve",
+        "duration": 1
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    },
+    {
+      "shot_id": "shot_033",
+      "time_code": "05:34-05:42",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "结尾感谢",
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，结尾标题卡片。中央大字\"感谢收听\"，下方副标题\"历史上的今天\"。金色边框装饰，背景是历史时光隧道效果，从现代回溯到古代。电影质感，16:9横屏，温馨告别。",
+            "size": "1920x1080",
+            "n": 1,
+            "reference_image": null,
+            "needs_text": true
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": [
+            "tasks.image"
+          ],
+          "parameters": {
+            "input_image": "shot_033.png",
+            "duration": 8,
+            "zoom_start": 1,
+            "zoom_end": 1.15,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>感谢各位的收听。这是《历史上的今天》节目。今天是2026年2月25日。我们下次再见！</prosody></voice></speak>",
+          "text": "感谢各位的收听。这是《历史上的今天》节目。今天是2026年2月25日。我们下次再见！"
+        }
+      },
+      "transition": {
+        "type": "fade_to_black",
+        "duration": 2
+      },
+      "reference_image": null,
+      "character_id": null,
+      "status": "pending"
+    }
+  ]
+}

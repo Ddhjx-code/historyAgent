@@ -1,485 +1,351 @@
----
 name: shot-list-skill
-description: 口播稿转分镜清单技能。将口播稿转化为可执行的 JSON 分镜清单，输出符合 Seedream/Seedance/FFmpeg/Azure TTS API 规范的参数。
+description: 口播稿转分镜清单技能。将任意口播稿转化为可执行的 JSON 分镜清单，输出符合 Seedream/Seedance/FFmpeg/Azure TTS API 规范的参数。
+
 ---
 
-# 口播稿转分镜清单技能
+# 口播稿转分镜清单技能（通用版）
 
 [技能说明]
-将口播稿转化为分镜执行清单（shot-list.json），输出符合 Seedream/Seedance/FFmpeg/Azure TTS API 规范的可执行参数。
+将任意口播稿转化为分镜执行清单（shot-list.json），输出符合 Seedream/Seedance/FFmpeg/Azure TTS API 规范的可执行参数。
+
+**核心特性**：
+- **通用性**：不依赖特定内容模板，适用于任何类型的口播稿
+- **动态提取**：从口播稿中自动提取时间、人物、地点、事件等信息
+- **智能分段**：根据文本结构和长度自动生成合理镜头序列
+- **一致性保障**：自动处理人物和场景的视觉连贯性
 
 [约束条件]
 - 单个视频时长：1-15 秒（Seedance 硬性限制）
 - 图像分辨率：1920x1080（16:9 横屏）
 - 视频分辨率：1080p
 - 输出格式：JSON
-- **旁白文本长度限制：≤ 1024 字符（Azure TTS text 字段硬性限制）**
-- **旁白文本应保留口播稿原始内容，尽量不精简**
-- **长旁白通过拆分为多个镜头来适配（每镜头 ≤ 15秒）**
+- 旁白文本长度限制：≤ 1024 字符（Azure TTS text 字段硬性限制）
+- 旁白文本应保留口播稿原始内容，尽量不精简
+- 长旁白通过拆分为多个镜头来适配（每镜头 ≤ 15秒）
 
 [文件结构]
 shot-list-skill/
 ├── SKILL.md                   # 本文件
 ├── api-spec.md                # API 规范（包含核心设计原则）
-├── core/                      # 核心模块（重构新增）
-│   ├── __init__.py           # 数据结构定义
-│   ├── script_parser.py      # 口播稿解析器
-│   ├── beat_breakdown.py     # 节拍拆解器
-│   ├── beat_board_generator.py  # Beat Board生成器（九宫格）
-│   ├── sequence_board_generator.py  # Sequence Board生成器（四宫格）
-│   ├── prompt_integrator.py  # Prompt集成器
-│   └── prompt_optimizer.py   # Prompt优化器
-├── libraries/                 # 历史特征库（重构新增）
-│   ├── historical_characters.json
-│   ├── historical_costumes.json
-│   ├── historical_architecture.json
-│   └── historical_locations.json
-├── output/                    # 输出目录（重构新增）
-│   ├── beat_breakdown/       # 节拍拆解表
-│   ├── beat_board/          # Beat Board（九宫格）
-│   └── sequence_board/      # Sequence Board（四宫格）
+├── core/                      # 核心模块
+│   ├── script-parser-rules.md    # 口播稿解析规则
+│   ├── shot-generation-rules.md  # 镜头生成规则
+│   ├── prompt-generation-rules.md # Prompt生成规则
+│   ├── continuity-rules.md       # 连贯性规则
+│   └── data-structures.md        # 数据结构定义
 └── templates/
-    ├── shot-list-template.md  # 输出模板
-    ├── beat-breakdown-template.md  # 节拍拆解模板（新增）
-    ├── beat-board-template.md      # Beat Board模板（新增）
-    └── sequence-board-template.md  # Sequence Board模板（新增）
+    └── shot-list-template.md  # 输出模板
 
-## 重构说明（v2.0）
+---
 
-**重构时间**: 2026-02-27
-**重构目标**: 提升图像提示词质量，采用分层渐进式分镜流程
+## 工作流程
 
-### 重构核心
-
-1. **分层渐进式分镜流程**
-   - 从直接拆分镜头 → 节拍拆解 → Beat Board → Sequence Board
-   - 确保叙事清晰、视觉连贯、人物一致
-
-2. **提升提示词质量**
-   - 从"关键词堆叠式" → "叙事描述式"
-   - 符合Gemini最佳实践（场景化思维、摄影术语融入自然语言）
-   - 整合隔壁项目的prompt生态（intelligent-prompt-generator、prompt-extractor、learner）
-
-3. **建设历史特征库**
-   - 人物特征库（characters）
-   - 服饰库（costumes）
-   - 建筑库（architecture）
-   - 地点库（locations）
-
-### 新工作流程
+### 整体流程图
 
 ```
-口播稿解析（Script Parser）
-    ↓ 提取结构、元数据、情绪关键词
-节拍拆解（Beat Breakdown）
-    ↓ 识别最小叙事单元，标注强度，选择9个锚点
-Beat Board生成（九宫格）
-    ↓ 确立视觉锚点，确保风格统一
-Sequence Board生成（四宫格）
-    ↓ 展开"起承转合"结构，继承一致性
-历史特征库匹配
-    ↓ 人物/服饰/建筑/地点
-Prompt智能生成
-    ↓ intelligent-prompt-generator + prompt-extractor
-Prompt优化
-    ↓ 一致性检查、Gemini最佳实践
-shot-list.json生成
-    ↓ 整合所有模块
-最终输出
+口播稿输入
+    ↓
+[阶段1：脚本解析]
+    ├─ 提取段落结构（开场、章节、结尾）
+    ├─ 提取时间信息（年份、朝代、时代）
+    ├─ 提取人物信息（姓名、身份、动作）
+    ├─ 提取地点信息（地名、场景描述）
+    └─ 提取事件信息（核心事件、描述）
+    ↓
+[阶段2：分段处理]
+    ├─ 为每个段落确定镜头类型
+    │   ├─ 开场/结尾 → title_card
+    │   ├─ 章节标题 → title_card
+    │   ├─ 过渡/抽象概念 → transition
+    │   └─ 具体内容 → content_scene
+    └─ 计算每个段落的镜头数量（基于文本长度）
+    ↓
+[阶段3：镜头生成]
+    ├─ 为每个镜头分配时长（≤15秒）
+    ├─ 生成时间码（连续无断裂）
+    └─ 确定镜头类型（title_card/transition/content_scene）
+    ↓
+[阶段4：Prompt生成]
+    ├─ title_card：标题 + 装饰元素
+    ├─ transition：抽象概念的具体化描述
+    └─ content_scene：具体场景的视觉描述
+    ↓
+[阶段5：一致性处理]
+    ├─ 为同一人物分配 character_id
+    ├─ 建立人物引用链（reference_image）
+    ├─ 为同一场景保持视觉特征
+    └─ 设置 seed 参数确保可复现
+    ↓
+[阶段6：参数生成]
+    ├─ 生成图像参数（prompt、size、seed、reference_image）
+    ├─ 生成视频参数（tool、effect、depends_on）
+    ├─ 生成音频参数（voice、ssml、text）
+    └─ 生成转场参数（type、duration）
+    ↓
+输出 shot-list.json
 ```
 
-### 混合方案（成本优化）
+---
+
+## 详细规则
+
+### 阶段1：脚本解析规则
+
+参考：`core/script-parser-rules.md`
+
+**目标**：从口播稿中提取结构化信息
+
+**提取内容**：
+1. **段落结构**：识别开场白、章节标题、结尾语
+2. **时间信息**：年份、朝代、时代描述
+3. **人物信息**：姓名、身份、动作描述
+4. **地点信息**：地名、场景类型、环境描述
+5. **事件信息**：核心事件、事件描述
+
+**提取方法**：
+- 使用正则表达式匹配时间模式（如"公元XXX年"、"XXX朝"、"XXX时代"）
+- 使用上下文分析识别人物和地点
+- 保留原始文本作为旁白内容
+
+---
+
+### 阶段2：分段处理规则
+
+参考：`core/shot-generation-rules.md`
+
+**目标**：将口播稿段落转换为镜头序列
+
+**镜头类型判断**：
+| 段落类型 | 镜头类型 | 说明 |
+|---------|---------|------|
+| 开场白 | title_card + transition | 节目标题 + 时光隧道效果 |
+| 章节标题 | title_card | 章节标题卡 |
+| 过渡段落 | transition | 抽象概念、时间跨越 |
+| 具体事件 | content_scene | 具体历史场景、事件描述 |
+| 结尾语 | title_card + transition | 感谢语 + 历史回顾 |
+
+**镜头数量计算**：
+- 基于文本长度和阅读速度（约 3-4 字/秒）
+- 每个镜头时长 5-15 秒
+- 长段落自动拆分为多个镜头
+
+---
+
+### 阶段3：镜头生成规则
+
+**时长分配原则**：
+- 标题卡：6-10 秒
+- 转场镜头：8-12 秒
+- 内容镜头：10-15 秒
+- 结尾镜头：12-15 秒
+
+**时间码计算**：
+- 从 00:00 开始
+- 累加每个镜头的 duration
+- 格式：MM:SS-MM:SS
+
+**镜头编号**：
+- 格式：shot_001, shot_002, ...
+- 连续无断裂
+- 按时间顺序排列
+
+---
+
+### 阶段4：Prompt生成与优化
+
+参考：`core/prompt-generation-rules.md`
+
+**步骤4.1：生成 Prompt**
+- title_card：标题 + 装饰元素
+- transition：抽象概念的具体化描述
+- content_scene：具体场景的视觉描述
+
+**步骤4.2：判断 needs_text**
+- title_card：`needs_text = true`
+- transition/content_scene：检查是否包含文字指示词（标题、年份、标记等）
+
+**步骤4.3：选择模型**
+- `needs_text = true`：使用 `doubao-seedream-4.5`
+- `needs_text = false`：使用 `doubao-seedream-3.0`
+
+**步骤4.4：过滤敏感词**
+- 过滤词汇：革命、台湾、共产党、苏维埃、共产主义
+- 替换为：`**`
+- 确保所有 prompt 都经过过滤
+
+**步骤4.5：设置参数**
+- 设置 `needs_text` 字段
+- 设置 `model` 字段
+- 设置其他参数（size、seed、reference_image）
+
+**通用Prompt模板**：
+
+#### 1. 标题卡 Prompt
+```
+[视觉风格]，[标题内容]。
+[装饰元素描述]，[背景描述]。
+电影质感，16:9横屏，[整体氛围]。
+```
+
+**示例**：
+```
+历史纪录片风格，标题卡片"历史上的今天"。
+金色边框装饰，中央大字标题，下方副标题"2026年2月25日"。
+背景是历史时光隧道效果，展现从古代到现代的时间流动。
+电影质感，16:9横屏，庄重大气。
+```
+
+#### 2. 转场镜头 Prompt
+```
+[视觉风格]，[抽象概念的具体化描述]。
+[具体元素列举]，[视觉细节]。
+电影质感，16:9横屏，[整体氛围]。
+```
+
+**关键原则**：
+- 将抽象概念转化为**具体的视觉元素**
+- 列举关键的时间点、事件、场景
+- 使用连接词建立视觉联系
+
+**示例**：
+```
+历史纪录片风格，横向时间轴画面。
+背景是深邃的宇宙星空。时间轴从左到右延伸，标记了公元138年（罗马帝国）、628年（波斯萨珊）、645年（玄奘取经）、1836年（左轮手枪）、1901年（美国钢铁）、1921年（苏联扩张）、1961年（科威特独立）、1980年（苏里南**）、2026年（中国外交部）。每个年份用金色光点标记，金色光芒连接各个光点。
+电影质感，16:9横屏，宏大史诗感。
+```
+
+#### 3. 内容场景 Prompt
+```
+[视觉风格]，[时代描述]。
+[人物描述]，[人物动作]，[场景环境]。
+[光影氛围]，[色调描述]。
+电影质感，16:9横屏，[整体氛围]。
+```
+
+**示例**：
+```
+历史纪录片风格，古罗马帝国时代。
+哈德良皇帝身着紫色镶边托加长袍，头戴橄榄枝冠冕，坐在大理石宝座上。宫廷内罗马柱林立，马赛克地板，墙上挂着罗马鹰旗。温暖的地中海阳光从高窗射入，形成戏剧性光影。
+电影质感，16:9横屏，庄严肃穆。
+```
+
+---
+
+### 阶段5：一致性处理规则
+
+参考：`core/continuity-rules.md`
+
+**人物一致性**：
+1. 为同一人物分配相同的 `character_id`
+2. 后续镜头使用 `reference_image` 指向前一个镜头
+3. 使用 `seed` 参数确保人物外观可复现
+
+**场景一致性**：
+1. 同一地点保持相似的视觉描述
+2. 使用 `reference_image` 传递场景特征
+3. 保持光线、色调、氛围的一致性
+
+**引用链建立**：
+```
+shot_001: character_id = "person_a", reference_image = null
+shot_002: character_id = "person_a", reference_image = "shot_001.png"
+shot_003: character_id = "person_a", reference_image = "shot_002.png"
+```
+
+---
+
+### 阶段6：参数生成规则
+
+**图像参数**：
+- `tool`: "seedream"
+- `model`: "doubao-seedream-4.5"
+- `prompt`: [阶段4生成的prompt]
+- `size`: "1920x1080"
+- `n`: 1
+- `seed`: [人物ID的哈希值，确保可复现]
+- `reference_image`: [前置镜头的图像路径]
+
+**视频参数**：
+- `tool`: "seedance" 或 "ffmpeg"
+  - 核心场景使用 "seedance"
+  - 标题卡和转场使用 "ffmpeg"
+- `effect`: "zoom_in", "pan_left", "dissolve" 等
+- `depends_on`: ["tasks.image"]
+- `parameters`:
+  - Seedance: `resolution: "1080p"`, `motion_prompt`
+  - FFmpeg: `input_image`, `duration`, `zoom_start`, `zoom_end`, `fps`
+
+**音频参数**：
+- `tool`: "azure_tts"
+- `voice`: "zh-CN-XiaoxiaoNeural" 或 "zh-CN-YunxiNeural"
+- `ssml`: [SSML格式的旁白文本]
+- `text`: [原始旁白文本]
+
+**转场参数**：
+- `type`: "dissolve", "fade", "wipe" 等
+- `duration`: 0.5-1.5 秒
+
+---
+
+## 成本优化策略
 
 采用 **Seedance + FFmpeg** 混合方案降低成本：
 
-| 镜头类型 | 视频工具 | 成本 | 效果 |
-|---------|---------|------|------|
-| title_card | ffmpeg | 免费 | Ken Burns 推进 |
-| transition | ffmpeg | 免费 | Ken Burns 推进 |
-| historical_scene | seedance | ~1元/5秒 | AI 生成动态 |
-| map | ffmpeg | 免费 | 缩放/平移 |
-
-**成本估算**：每集约 10-15 个历史场景镜头，成本 10-20 元。
-
-[工作流程]
-1. 解析口播稿 → 提取场景、时间轴、旁白
-2. 场景分镜 → 按 ≤15s 拆分为镜头
-3. 分配视频工具 → 根据镜头类型选择 FFmpeg/Seedance
-4. 生成图像提示词 → 按照全中文格式生成（见图像提示词生成规则）
-5. 生成动态参数 → FFmpeg 效果或 Seedance 提示词
-6. 生成 SSML → 符合 Azure TTS 规范
-7. 配置全局资源 → BGM、字体、风格预设
-8. 设置依赖关系 → video 依赖 image
-9. 输出 shot-list.json
-
-[图像提示词生成]
-
-图像提示词采用**全中文描述**，简洁直观，便于理解和调试。
-
-**生成规则**：
-1. 基础风格：历史纪录片风格
-2. 时代特征：朝代/时代 + 服饰 + 建筑 + 色调
-3. 场景描述：人物、动作、环境
-4. 画面参数：电影质感、16:9横屏、高清画质
-
-**提示词格式**：
-```
-历史纪录片风格，[时代]时代，[服饰特征]，[建筑风格]，[色调]。
-[场景描述]，[人物动作]，[光影氛围]。
-电影质感，16:9横屏，高清画质。
-```
-
-**示例**：
-
-| 场景 | 提示词 |
-|------|--------|
-| 罗马宫殿 | 历史纪录片风格，古罗马时代，托加长袍，大理石柱建筑，暖黄白金色调。哈德良皇帝坐在宝座上，威严庄重，宫廷氛围。电影质感，16:9横屏，高清画质。 |
-| 唐代长安 | 历史纪录片风格，唐代，襦裙圆领袍，斗拱飞檐建筑，绚丽多彩色调。玄奘高僧携带佛经，站在城门前，神圣庄严。电影质感，16:9横屏，高清画质。 |
-| 智利地震 | 历史纪录片风格，现代智利，现代建筑，蓝白暖橙色调。地震后街道，建筑摇晃，紧张氛围。电影质感，16:9横屏，高清画质。 |
-
-**时代特征速查**：
-
-| 时代 | 服饰 | 建筑 | 色调 |
-|------|------|------|------|
-| 古罗马 | 托加长袍、橄榄冠 | 大理石柱、马赛克 | 暖黄、白、金 |
-| 波斯 | 波斯长袍、金冠 | 宫殿、穹顶 | 金、红、深蓝 |
-| 唐代 | 襦裙、圆领袍 | 斗拱、飞檐 | 绚丽多彩 |
-| 明清 | 马褂、旗装 | 琉璃瓦、红墙 | 红黄、蓝 |
-| 工业时代 | 西装马甲、礼帽 | 工厂、蒸汽机 | 褐色、铜色 |
-| 现代 | 正装、商务西装 | 现代建筑 | 蓝灰、中性色 |
-| 台湾民国 | 中山装、旗袍 | 台北老街 | 棕色、暖黄 |
-
-[口播稿解析规则]
-
-识别结构元素：
-- 【开场白】→ 开场镜头（标题卡）
-- 【第X部分】→ 分隔转场
-- 【事件X】→ 历史场景镜头
-- 【结尾语】→ 结尾镜头
-
-提取关键信息：
-- 时间标记（如：公元138年）
-- 人物（如：哈德良皇帝、玄奘）
-- 地点（如：罗马宫廷、长安）
-- 旁白文本 → 用于 TTS
-
-**章节事件分配规则**：
-
-根据事件编号分配到对应章节（事件编号使用中文数字：一、二、三...）：
-
-| 章节编号 | 章节名称 | 事件编号 | 时代范围 |
-|---------|---------|---------|---------|
-| 第一部分 | 古代历史的见证 | 事件一、二 | 古代（罗马、波斯） |
-| 第二部分 | 中国古代的文化高峰 | 事件三至七 | 中古（唐、明、西藏等） |
-| 第三部分 | 工业革命与近现代的创新 | 事件八至十二 | 近现代（19-20世纪） |
-| 第四部分 | 当代的国际关系 | 事件十三 | 当代（21世纪） |
-
-**注意**：
-- 事件编号与章节内容必须匹配，不要将工业革命事件放到"中国古代"章节
-- 章节转场的提示词必须与后续内容主题相符
-
-[分镜规则]
-
-镜头类型与时长：
-| 类型 | 时长范围 | 视频工具 | 说明 |
-|------|---------|---------|------|
-| title_card | 5-10秒 | ffmpeg | 节目标题卡 |
-| historical_scene | 5-15秒 | seedance | 历史场景重现 |
-| transition | 3-8秒 | ffmpeg | 转场动画 |
-| map | 5-10秒 | ffmpeg | 地图/信息图 |
-
-视频工具选择规则：
-1. **默认使用 FFmpeg**：标题卡、转场、地图
-2. **使用 Seedance**：历史场景（需要人物动作、场景变化）
-3. **判断依据**：
-   - 需要人物动作（走动、说话、转身）→ Seedance
-   - 需要场景动态（云动、水波、火光）→ Seedance
-   - 静态画面 + 简单动效 → FFmpeg
-
-时长拆分规则：
-- 场景时长 > 15秒 → 拆分为多个镜头
-- 每个镜头 ≤ 15秒
-- 拆分点选择：动作变化、视角切换、时间跳跃
-
-**旁白时长匹配规则**：
-- 中文语速：约 3.5 字/秒
-- 计算公式：`旁白字数 ÷ 3.5 = 预估秒数`
-- 镜头时长 = 旁白预估秒数 + 1秒缓冲
-- 如果旁白字数 > 1024 或预估时长 > 15秒，必须拆分为多个镜头
-- **拆分原则**：按语义单元拆分，保持口播稿原始内容完整性
-
-**转场提示词规则**：
-
-根据章节主题生成匹配的转场提示词：
-
-| 章节主题 | 转场提示词背景元素 |
-|---------|------------------|
-| 古代历史（罗马、波斯等） | 羊皮卷轴、罗马竞技场、古代地图、历史剪影 |
-| 中国古代文化 | 水墨山水画、古典亭台、远山近水、云雾缭绕 |
-| 工业革命/近现代 | 蒸汽机、钢铁厂、现代都市剪影、工业烟雾 |
-| 当代国际关系 | 联合国大楼、各国国旗、蓝色地球、现代科技感 |
-
-**示例**：
-- "第二部分：中国古代的文化高峰" → 背景：水墨山水画效果
-- "第三部分：工业革命与近现代的创新" → 背景：蒸汽机、钢铁厂剪影
-
-[全局资源配置]
-
-在 meta.global_assets 中配置：
-
-```json
-{
-  "global_assets": {
-    "bgm": {
-      "path": "assets/bgm/documentary_ambient.mp3",
-      "volume": 0.3,
-      "ducking": true,
-      "ducking_ratio": 0.2
-    },
-    "fonts": {
-      "title": "assets/fonts/NotoSerifSC-Bold.otf",
-      "subtitle": "assets/fonts/NotoSansSC-Regular.otf"
-    },
-    "logo": "assets/images/logo.png"
-  }
-}
-```
-
-[风格预设]
-
-在 meta.style_preset 中配置全局风格：
-
-```json
-{
-  "style_preset": {
-    "visual_style": "历史纪录片风格",
-    "color_grading": "暖色调，电影质感",
-    "transition_default": "dissolve"
-  }
-}
-```
-
-**注意**：visual_style 会自动添加到每个图像 prompt 开头。
-
-[依赖关系]
-
-每个镜头的 video 任务必须声明依赖：
-
-```json
-{
-  "tasks": {
-    "image": { ... },
-    "video": {
-      "depends_on": ["tasks.image"],
-      ...
-    }
-  }
-}
-```
-
-[转场效果]
-
-每个镜头末尾配置转场：
-
-```json
-{
-  "transition": {
-    "type": "dissolve",
-    "duration": 1.0
-  }
-}
-```
-
-转场类型：
-| 类型 | 说明 | 适用场景 |
-|------|------|---------|
-| dissolve | 叠化 | 默认转场 |
-| fade_to_black | 黑场 | 章节/年代跨度大 |
-| wipe | 划像 | 时间线推进 |
-| cut | 直接切换 | 快节奏叙事 |
-
-[人物一致性]
-
-跨镜头人物一致性控制：
-
-```json
-{
-  "shot_id": "shot_004",
-  "character_id": "xuanzang_645",
-  "tasks": {
-    "image": {
-      "parameters": {
-        "reference_image": "shot_003.png",
-        "seed": 42
-      }
-    },
-    "video": {
-      "parameters": {
-        "seed": 42,
-        "reference_image": "shot_003.png"
-      }
-    }
-  }
-}
-```
-
-**一致性规则**：
-1. 同一人物在不同镜头中使用相同的 character_id
-2. 后续镜头的 reference_image 指向前一个镜头
-3. 使用相同的 seed 值保持风格一致
-
-[首尾帧衔接规则]
-
-连续镜头需要指定 reference_image：
-```json
-{
-  "reference_image": "shot_004.png"
-}
-```
-
-衔接原则：
-- 同一场景的连续镜头使用前一个镜头的图片作为参考
-- 保持人物外貌一致
-- 保持场景光色一致
-- 变化时显式说明原因
-
-[历史考据规则]
-
-识别时代后，按照以下模板生成图像提示词：
-
-| 时代 | 服饰特征 | 建筑风格 | 色调 | 提示词模板 |
-|------|---------|---------|------|----------|
-| 古罗马 | 托加长袍、橄榄冠 | 大理石柱、马赛克 | 暖黄、白 | 历史纪录片风格，古罗马时代，托加长袍，大理石柱建筑，暖黄白金色调。 |
-| 波斯 | 波斯长袍、金冠 | 宫殿、穹顶 | 金、红、深蓝 | 历史纪录片风格，波斯时代，波斯长袍，宫殿穹顶建筑，金红深蓝色调。 |
-| 战国秦汉 | 深衣、冠冕 | 宫殿、城郭 | 黑红、金 | 历史纪录片风格，战国秦汉，深衣冠冕，宫殿城郭建筑，黑红金色调。 |
-| 唐代 | 襦裙、圆领袍 | 斗拱、飞檐 | 绚丽多彩 | 历史纪录片风格，唐代，襦裙圆领袍，斗拱飞檐建筑，绚丽多彩色调。 |
-| 明清 | 马褂、旗装 | 琉璃瓦、红墙 | 红黄、蓝 | 历史纪录片风格，明清时代，马褂旗装，琉璃瓦红墙建筑，红黄蓝色调。 |
-| 台湾民国 | 中山装、旗袍 | 台北老街 | 棕色、暖黄 | 历史纪录片风格，台湾民国时期，中山装旗袍，台北老街建筑，棕暖黄色调。 |
-| 工业时代 | 西装马甲、礼帽 | 工厂车间、蒸汽机 | 褐色、铜色 | 历史纪录片风格，工业时代，西装马甲礼帽，工厂蒸汽机建筑，褐铜色调。 |
-| 现代 | 正装、商务西装 | 现代建筑、会议室 | 蓝灰、中性色 | 历史纪录片风格，现代，正装商务西装，现代建筑会议室，蓝灰中性色调。 |
-
-[重试策略]
-
-每个任务配置重试策略：
-
-```json
-{
-  "retry_policy": {
-    "max_retries": 3,
-    "backoff": "exponential"
-  }
-}
-```
-
-[输出规范]
-
-输出文件：outputs/{episode}/shot-list.json
-
-输出格式：参考 templates/shot-list-template.md
-
-[FFmpeg 效果选择]
-
-| 镜头类型 | 推荐效果 | 参数建议 |
-|---------|---------|---------|
-| title_card | zoom_in | zoom_end=1.15 |
-| transition | zoom_in | zoom_end=1.1 |
-| map | pan_right 或 zoom_in | 根据地图方向 |
-
-[注意事项]
-- 严格按照 api-spec.md 中的规范生成提示词
-- 确保每个镜头时长 ≤ 15秒
-- **确保每个镜头的 text 字段 ≤ 1024 字符**
-- **确保旁白字数与镜头时长匹配（3.5 字/秒）**
-- **保留口播稿原始旁白内容，不随意精简**
-- **确保章节与事件分配正确**
-- **确保转场提示词与章节主题匹配**
-- 连续镜头必须指定 reference_image
-- 旁白文本必须生成对应的 SSML（使用 SSMLGenerator，见下方说明）
-- 图像提示词采用全中文格式（见图像提示词生成规则）
-- 历史场景必须使用 Seedance（需动态效果）
-- 其他类型镜头使用 FFmpeg（节省成本）
-- 在 meta 中添加 cost_estimate 预估成本
-- 配置 global_assets（BGM、字体）
-- 配置 style_preset（全局风格）
-- 设置 depends_on（依赖关系）
-- 设置 transition（转场效果）
-- 设置 character_id（人物一致性）
-- 设置 retry_policy（重试策略）
-
-[输出校验清单]
-
-生成 shot-list.json 后必须校验：
-
-- [ ] 每个镜头 duration ≤ 15
-- [ ] 每个镜头的 text 字段 ≤ 1024 字符
-- [ ] 每个镜头旁白字数 ≤ 时长 × 3.5（按语速计算）
-- [ ] 旁白内容保留口播稿原始内容，不随意精简
-- [ ] 章节转场位置正确（在各章节第一个事件之前）
-- [ ] 章节转场提示词与后续内容主题匹配
-- [ ] 历史场景的朝代/时代识别正确
-- [ ] 所有 image.parameters.size 为 1920x1080
-- [ ] video.tool 为 seedance 或 ffmpeg
-- [ ] 所有 video 任务有 depends_on
-- [ ] 连续镜头有 reference_image（人物一致性）
-- [ ] meta 中包含 cost_estimate、global_assets、style_preset
-
-[SSML 增强生成器]
-
-使用 SSMLGenerator 生成自然的语音旁白，解决多音字、停顿、情感等问题：
-
-**使用方式**：
-```python
-from prompt_engine import SSMLGenerator, EmotionType
-
-gen = SSMLGenerator("zh-CN-YunxiNeural")
-
-# 方式1：快速生成
-ssml = gen.generate_emotional(
-    text="公元645年2月25日，唐代高僧玄奘携带657部梵文佛经回到长安。",
-    emotion="solemn",  # solemn, serious, dramatic, hopeful, nostalgic
-    emphasis=["玄奘", "657部"]
-)
-
-# 方式2：便捷方法
-ssml = gen.generate_narration(text, is_dramatic=False)  # 历史叙事
-ssml = gen.generate_opening(text)   # 开场白
-ssml = gen.generate_ending(text)    # 结尾语
-
-# 方式3：精细控制（分段）
-from prompt_engine import SSMLSegment, PauseType
-
-segments = [
-    SSMLSegment(text="在公元138年的这一天，", emotion=EmotionType.SOLEMN, pause_after=PauseType.SHORT),
-    SSMLSegment(text="罗马皇帝哈德良做出了一个重大决定——", emotion=EmotionType.SERIOUS, emphasis="strong", pause_after=PauseType.MEDIUM),
-    SSMLSegment(text="他收养并指定安敦宁·毕尤为帝国的继承人。", emotion=EmotionType.NEUTRAL, rate=0.85),
-]
-ssml = gen.generate_with_segments(segments)
-```
-
-**功能说明**：
-
-| 功能 | 说明 | 示例 |
-|------|------|------|
-| 多音字修正 | 自动修正历史类常见多音字 | 单于→chán yú，冒顿→mò dú |
-| 自动停顿 | 根据标点自动添加停顿 | ，→500ms，。→1000ms |
-| 情感表达 | 8种情感风格 | solemn(庄重), dramatic(戏剧性), hopeful(充满希望) |
-| 强调标记 | 强调关键词语 | 摩根、14亿美元 |
-| 语速控制 | 不同情感自动调整语速 | 庄重0.85，激动1.1 |
-
-**情感类型**：
-| 情感 | 适用场景 | 语速 | 音调 |
-|------|---------|------|------|
-| neutral | 中性叙述 | 1.0 | +0% |
-| serious | 严肃内容 | 0.9 | -5% |
-| solemn | 庄重历史 | 0.85 | -10% |
-| dramatic | 戏剧高潮 | 0.8 | +0% |
-| hopeful | 充满希望 | 0.95 | +5% |
-| nostalgic | 怀旧结尾 | 0.85 | -5% |
-| excited | 激动兴奋 | 1.1 | +10% |
-| sad | 悲伤内容 | 0.8 | -15% |
-
-**多音字词典**（已内置）：
-- 人名/称号：单于(chán yú)、可汗(kè hán)、冒顿(mò dú)、阏氏(yān zhī)
-- 地名：大宛(dà yuān)、龟兹(qiū cí)、吐蕃(tǔ bō)
-- 复姓：万俟(mò qí)、尉迟(yù chí)、长孙(zhǎng sūn)
-- 其他：大月氏(dà ròu zhī)、般若(bō rě)、南无(nā mó)
+| 镜头类型 | 视频工具 | 成本 | 适用场景 |
+|---------|---------|------|---------|
+| title_card | ffmpeg | 免费 | 标题卡、章节标题 |
+| transition | ffmpeg | 免费 | 转场、抽象概念 |
+| content_scene | seedance | ~1元/5秒 | 核心历史场景 |
+
+**成本估算**：
+- 假设 10 分钟口播稿
+- 标题卡：约 5 个（免费）
+- 转场镜头：约 10 个（免费）
+- 内容场景：约 15-20 个（15-25元）
+- **总成本：约 15-25 元**
+
+---
+
+## API 规范
+
+详细的 API 参数规范请参考 `api-spec.md`。
+
+---
+
+## 模板参考
+
+shot-list.json 的模板请参考 `templates/shot-list-template.md`。
+
+---
+
+## 常见问题
+
+### Q1：如何处理口播稿中没有明确描述的场景？
+
+A：使用通用的视觉描述，例如"历史场景"、"抽象概念"等，结合口播稿中的时间信息构建合理的画面。
+
+### Q2：如何确保历史准确性？
+
+A：从口播稿中提取准确的时间、人物、地点信息，在 prompt 中直接使用这些信息，不添加未经证实的细节。
+
+### Q3：如何处理非常长的口播稿？
+
+A：自动拆分为多个镜头，每个镜头时长控制在 15 秒以内，确保流畅观看体验。
+
+### Q4：如何处理不同类型的口播稿？
+
+A：本技能采用通用化设计，适用于历史、科普、故事、新闻等各类口播稿，不依赖特定模板。
+
+---
+
+## 更新日志
+
+**v3.0** (2026-02-27) - 全面重构
+- 移除 Beat Board/Sequence Board 分层流程
+- 建立通用化脚本解析和镜头生成规则
+- 移除静态历史特征库，改为动态提取
+- 简化工作流程，提升通用性
+
+**v2.1** - 添加历史特征库和智能Prompt生成
+**v2.0** - 分层渐进式分镜系统（Beat Board + Sequence Board）
+**v1.0** - 初始版本
