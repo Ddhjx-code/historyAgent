@@ -1,0 +1,293 @@
+{
+  "version": "1.0",
+  "last_updated": "2026-02-27",
+  "changelog": [
+    {
+      "version": "1.0",
+      "date": "2026-02-27",
+      "changes": "初始版本，包含10个历史人物，覆盖5个时代"
+    }
+  ],
+  "characters": [
+    {
+      "character_id": "lin_jiangmai_1947",
+      "name": "林江迈",
+      "period": "民国时期（1947）",
+      "identity": "烟纸摊贩",
+      "visual_features": {
+        "age": "40岁左右",
+        "gender": "女性",
+        "face_shape": "饱经风霜的脸庞，颧骨突出",
+        "expression": "疲惫、担忧、充满生存压力",
+        "body_type": "瘦弱、营养不良",
+        "hair": "黑色头发，简单的发髻，略显凌乱",
+        "skin_tone": "黄褐色，长期户外工作晒黑"
+      },
+      "clothing": {
+        "type": "打补丁的粗布衣裳",
+        "material": "粗棉布",
+        "color": "灰褐色",
+        "condition": "破旧、磨损、多处补丁",
+        "accessories": []
+      },
+      "pose": {
+        "default": "蹲在路边摆摊，身体前倾",
+        "alternatives": ["蹲坐防御姿态", "站立疲惫姿态", "倒地受伤姿态"]
+      },
+      "prompt_snippet": "一位40岁的台湾寡妇，身穿打补丁的粗布衣裳，脸上写满疲惫，眼神中有对明天的担忧",
+      "historical_context": "林江迈是1947年台湾\"二二八事件\"的导火索人物。她是一位40岁的寡妇，为了养活两个孩子在台北市太平町摆烟纸摊。2月27日，专卖局查缉员殴打她的事件引发了大规模民众反抗。"
+    },
+    {
+      "character_id": "chen_wenxi_1947",
+      "name": "陈文溪",
+      "period": "民国时期（1947）",
+      "identity": "无辜路人",
+      "visual_features": {
+        "age": "35岁左右",
+        "gender": "男性",
+        "face_shape": "普通市民的面孔",
+        "expression": "惊愕、痛苦",
+        "body_type": "中等身材",
+        "hair": "黑色短发",
+        "skin_tone": "亚洲肤色"
+      },
+      "clothing": {
+        "type": "平民服装",
+        "material": "棉布",
+        "color": "深蓝色",
+        "condition": "整洁",
+        "accessories": []
+      },
+      "pose": {
+        "default": "站在街边",
+        "alternatives": ["倒地受伤", "惊恐后退"]
+      },
+      "prompt_snippet": "一名35岁的普通市民，身穿深蓝色棉布服装，脸上充满惊愕和痛苦",
+      "historical_context": "陈文溪是1947年二二八事件中误伤身亡的无辜路人。在专卖局查缉员与林江迈的冲突中，他被流弹击中，当场死亡，这一事件激化了民众的愤怒。"
+    },
+    {
+      "character_id": "hadrian_138",
+      "name": "哈德良皇帝",
+      "period": "古罗马帝国（2世纪）",
+      "identity": "罗马皇帝",
+      "visual_features": {
+        "age": "60岁左右",
+        "gender": "男性",
+        "face_shape": "罗马帝国轮廓，坚毅而威严",
+        "expression": "智慧、权威、深思熟虑",
+        "body_type": "高大健壮",
+        "hair": "灰色短发，修剪整齐",
+        "skin_tone": "白皙"
+      },
+      "clothing": {
+        "type": "紫色镶边托加长袍",
+        "material": "精细羊毛",
+        "color": "紫色、白色、金色",
+        "condition": "崭新整洁",
+        "accessories": ["橄榄枝冠冕", "皇权戒指"]
+      },
+      "pose": {
+        "default": "坐在罗马帝国的宝座上",
+        "alternatives": ["站立接受朝拜", "侧身沉思", "签署诏书"]
+      },
+      "prompt_snippet": "罗马帝国皇帝哈德良，身穿紫色镶边托加长袍，头戴橄榄枝冠冕，威严地坐在宝座上",
+      "historical_context": "哈德良（76-138年在位）是罗马帝国\"五贤帝\"之一，以修建哈德良长城和完善帝国行政体系闻名。公元138年，他收养并指定安敦宁·毕尤为继承人，确保了帝国的平稳过渡。"
+    },
+    {
+      "character_id": "antonninus_pius_138",
+      "name": "安敦宁·毕尤",
+      "period": "古罗马帝国（2世纪）",
+      "identity": "罗马皇帝",
+      "visual_features": {
+        "age": "50岁左右",
+        "gender": "男性",
+        "face_shape": "英俊而温和",
+        "expression": "谦逊、恭敬、谨慎",
+        "body_type": "中等身材",
+        "hair": "黑色卷发",
+        "skin_tone": "白皙"
+      },
+      "clothing": {
+        "type": "白色托加长袍",
+        "material": "精细羊毛",
+        "color": "白色",
+        "condition": "崭新整洁",
+        "accessories": ["金色腰带"]
+      },
+      "pose": {
+        "default": "恭敬地站在皇帝面前",
+        "alternatives": ["跪地接受诏书", "正式宣誓就职"]
+      },
+      "prompt_snippet": "安敦宁·毕尤，身穿白色托加长袍，系着金色腰带，恭敬地站在罗马帝国宝座前",
+      "historical_context": "安敦宁·毕尤（86-161年在位）是哈德良的继承人，罗马帝国\"五贤帝\"之首。他以温和、公正的统治风格著称，开启了罗马帝国的\"安敦尼王朝\"黄金时期。"
+    },
+    {
+      "character_id": "xuanzang_645",
+      "name": "玄奘高僧",
+      "period": "唐代（7世纪）",
+      "identity": "佛教高僧、西行取经",
+      "visual_features": {
+        "age": "45岁左右",
+        "gender": "男性",
+        "face_shape": "庄严慈悲的僧侣面容",
+        "expression": "平和、坚定、充满智慧",
+        "body_type": "中等身材",
+        "hair": "剃光头",
+        "skin_tone": "黄褐色，长期徒步晒黑"
+      },
+      "clothing": {
+        "type": "唐代僧袍",
+        "material": "棉布",
+        "color": "赭红色",
+        "condition": "整洁但磨损",
+        "accessories": ["佛经卷轴", "木杖"]
+      },
+      "pose": {
+        "default": "站在长安城门前，手持佛经",
+        "alternatives": ["长途跋涉中行走", "打坐冥想", "讲经说法"]
+      },
+      "prompt_snippet": "唐代高僧玄奘，身穿赭红色僧袍，手持佛经卷轴，站在长安城门前，神情庄严慈悲",
+      "historical_context": "玄奘（602-664年）是唐代著名高僧，西行印度取经17年，带回657部梵文佛经，并翻译成中文。他的旅行和翻译工作极大地促进了中国佛教的发展。"
+    },
+    {
+      "character_id": "emperor_taizong_tang",
+      "name": "唐太宗李世民",
+      "period": "唐代（7世纪）",
+      "identity": "唐朝皇帝",
+      "visual_features": {
+        "age": "45岁左右",
+        "gender": "男性",
+        "face_shape": "英武俊朗",
+        "expression": "威严、自信、充满领导力",
+        "body_type": "高大健壮",
+        "hair": "黑色束发",
+        "skin_tone": "黄白色"
+      },
+      "clothing": {
+        "type": "龙袍",
+        "material": "丝绸",
+        "color": "黄色、红色、金色",
+        "condition": "崭新华丽",
+        "accessories": ["皇冠", "玉佩"]
+      },
+      "pose": {
+        "default": "坐在龙椅上，接见外国使节",
+        "alternatives": ["骑马出征", "朝堂议事", "御驾亲征"]
+      },
+      "prompt_snippet": "唐朝皇帝李世民，身穿黄色龙袍，头戴皇冠，威严地坐在龙椅上，神情自信从容",
+      "historical_context": "李世民（598-649年），唐太宗，唐朝第二位皇帝。他在位期间开创了\"贞观之治\"，使唐朝成为当时世界上最强大的帝国之一。"
+    },
+    {
+      "character_id": "chile_president_2010",
+      "name": "智利总统塞巴斯蒂安·皮涅拉",
+      "period": "现代智利（2010）",
+      "identity": "智利总统",
+      "visual_features": {
+        "age": "50岁左右",
+        "gender": "男性",
+        "face_shape": "西方人面部特征",
+        "expression": "严肃、关切、决策果断",
+        "body_type": "中等身材",
+        "hair": "棕色短发",
+        "skin_tone": "白皙"
+      },
+      "clothing": {
+        "type": "西装",
+        "material": "毛料",
+        "color": "深蓝色",
+        "condition": "整洁正式",
+        "accessories": ["领带", "西装扣"]
+      },
+      "pose": {
+        "default": "站在讲台前，对全国发表讲话",
+        "alternatives": ["视察地震灾区", "召开新闻发布会", "签署文件"]
+      },
+      "prompt_snippet": "智利总统塞巴斯蒂安·皮涅拉，身穿深蓝色西装，神情严肃关切，站在讲台前发表讲话",
+      "historical_context": "塞巴斯蒂安·皮涅拉是2010年智利8.8级大地震时期的总统。地震发生时，他正在外地，但立即启动了国家应急响应，展现了卓越的危机管理能力。"
+    },
+    {
+      "character_id": "ming_emperor_zhu_di",
+      "name": "明成祖朱棣",
+      "period": "明代（14-15世纪）",
+      "identity": "明朝皇帝",
+      "visual_features": {
+        "age": "55岁左右",
+        "gender": "男性",
+        "face_shape": "方形脸，目光锐利",
+        "expression": "威严、霸气、权力集中",
+        "body_type": "高大健壮",
+        "hair": "黑色长须",
+        "skin_tone": "黄白色"
+      },
+      "clothing": {
+        "type": "龙袍",
+        "material": "丝绸刺绣",
+        "color": "黄色、红色、黑色",
+        "condition": "华丽威严",
+        "accessories": ["皇冠", "玉玺"]
+      },
+      "pose": {
+        "default": "坐在龙椅上，审视朝堂",
+        "alternatives": ["阅兵", "批阅奏折", "御驾亲征"]
+      },
+      "prompt_snippet": "明朝皇帝朱棣，身穿黄色龙袍，头戴皇冠，威严霸气地坐在龙椅上，目光锐利",
+      "historical_context": "朱棣（1360-1424年），明成祖，明朝第三位皇帝。他通过靖难之役夺取皇位，在位期间迁都北京、修筑紫禁城、派遣郑和下西洋，开创了明朝的鼎盛时期。"
+    },
+    {
+      "character_id": "ming_dynasty_scholar",
+      "name": "明代官员",
+      "period": "明代（15世纪）",
+      "identity": "文官",
+      "visual_features": {
+        "age": "40岁左右",
+        "gender": "男性",
+        "face_shape": "儒雅书生面容",
+        "expression": "恭敬、谦卑、专注",
+        "body_type": "中等身材",
+        "hair": "黑色长须",
+        "skin_tone": "黄白色"
+      },
+      "clothing": {
+        "type": "官服",
+        "material": "丝绸",
+        "color": "蓝色、紫色",
+        "condition": "整洁正式",
+        "accessories": ["乌纱帽"]
+      },
+      "pose": {
+        "default": "跪在地上上奏折",
+        "alternatives": ["站立朝见", "书写奏折", "同僚议事"]
+      },
+      "prompt_snippet": "明代文官，身穿蓝色官服，头戴乌纱帽，恭敬地跪在地上上奏折",
+      "historical_context": "明代文官制度发达，官员需通过科举考试选拔。官员身穿不同颜色的官服（一至四品用绯色、五至七品用青色），头戴乌纱帽，上朝时需行跪拜礼。"
+    },
+    {
+      "character_id": "taiwan_police_officer_1947",
+      "name": "专卖局查缉员",
+      "period": "民国时期（1947）",
+      "identity": "政府执法人员",
+      "visual_features": {
+        "age": "30岁左右",
+        "gender": "男性",
+        "face_shape": "严肃冷硬",
+        "expression": "冷漠、权威、无情",
+        "body_type": "中等身材",
+        "hair": "黑色短发",
+        "skin_tone": "亚洲肤色"
+      },
+      "clothing": {
+        "type": "制服",
+        "material": "棉布",
+        "color": "深蓝色",
+        "condition": "整洁",
+        "accessories": ["警棍"]
+      },
+      "pose": {
+        "default": "站直，双手持警棍",
+        "alternatives": ["举起警棍", "查验货物", "驱赶人群"]
+      },
+      "prompt_snippet": "身穿深蓝色制服的专卖局查缉员，神情冷漠，手持警棍，站在街边执法",
+      "historical_context": "1947年台湾实行专卖制度，专卖局查缉员负责打击私烟贩卖。查缉员往往态度强硬，执法粗暴，这种暴力执法方式激化了民众的不满，最终引发了二二八事件。"
+    }
+  ]
+}
