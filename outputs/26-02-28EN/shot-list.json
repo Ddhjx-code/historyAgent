@@ -1,0 +1,1350 @@
+{
+  "meta": {
+    "project_name": "This Day in History",
+    "episode": "26-02-28EN",
+    "total_duration": 242,
+    "shot_count": 22,
+    "created_at": "2026-02-28",
+    "cost_estimate": {
+      "seedance_shots": 13,
+      "ffmpeg_shots": 9,
+      "estimated_cost_yuan": 16
+    },
+    "global_assets": {
+      "bgm": {
+        "path": "assets/bgm/documentary_ambient.mp3",
+        "volume": 0.3,
+        "ducking": true,
+        "ducking_ratio": 0.2
+      },
+      "fonts": {
+        "title": "assets/fonts/NotoSerifSC-Bold.otf",
+        "subtitle": "assets/fonts/NotoSansSC-Regular.otf"
+      },
+      "logo": "assets/images/logo.png"
+    },
+    "style_preset": {
+      "visual_style": "historical documentary style",
+      "color_grading": "warm tones, cinematic quality",
+      "transition_default": "dissolve"
+    },
+    "storage": {
+      "type": "local",
+      "base_path": "outputs/26-02-28EN/"
+    },
+    "audio_mix": {
+      "normalize_voice": true,
+      "bgm_ducking": true
+    }
+  },
+
+  "shots": [
+    {
+      "shot_id": "shot_001",
+      "time_code": "00:00-00:08",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "Program title card",
+      "narrative_text": "Good morning/afternoon, ladies and gentlemen! Welcome to \"This Day in History.\" I am your host. Today is February 28, 2026, Saturday.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "Historical documentary style, title card design. Large title text \"This Day in History\" in the center, subtitle \"February 28, 2026\" below. Golden border decoration, background shows a historical time tunnel effect, starlight flowing from ancient to modern times. Cinematic quality, 16:9 widescreen, dignified and atmospheric.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_001.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.15,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-JennyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-JennyNeural'><prosody rate='0.95'>Good morning/afternoon, ladies and gentlemen! Welcome to \"This Day in History.\" I am your host. Today is February 28, 2026, Saturday.</prosody></voice></speak>",
+          "text": "Good morning/afternoon, ladies and gentlemen! Welcome to \"This Day in History.\" I am your host. Today is February 28, 2026, Saturday."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_002",
+      "time_code": "00:08-00:18",
+      "duration": 10,
+      "type": "transition",
+      "era": null,
+      "description": "Historical timeline opening",
+      "narrative_text": "On this special day, let us revisit some of the most significant events in human history that occurred on February 28th.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, horizontal timeline visualization. Deep cosmic starfield background. Timeline extends from left to right, marking 1922 (Egypt's Independence), 1947 (The 228 Incident), 1986 (Swedish PM Assassination), 1991 (Gulf War End), 2013 (Pope's Resignation). Each year marked with golden light points, connected by flowing golden beams. Cinematic quality, 16:9 widescreen, epic grandeur.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "pan_right",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_002.png",
+            "duration": 10,
+            "zoom_start": 1.1,
+            "zoom_end": 1.1,
+            "pan_x_start": 0.3,
+            "pan_x_end": 0.7,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>On this special day, let us revisit some of the most significant events in human history that occurred on February 28th.</prosody></voice></speak>",
+          "text": "On this special day, let us revisit some of the most significant events in human history that occurred on February 28th."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_003",
+      "time_code": "00:18-00:26",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "Event One title card: Egypt's Independence",
+      "narrative_text": "Event One: February 28, 1922 — Egypt's Declaration of Independence",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "Historical documentary style, chapter title card design. Large title text \"Event One\" in the center, subtitle \"February 28, 1922 — Egypt's Declaration of Independence\" below. Golden border decoration, background shows silhouettes of pyramids and the Nile River, golden light shining. Cinematic quality, 16:9 widescreen, dignified and atmospheric.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_003.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Event One: February 28, 1922 — Egypt's Declaration of Independence.</prosody></voice></speak>",
+          "text": "Event One: February 28, 1922 — Egypt's Declaration of Independence."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_004",
+      "time_code": "00:26-00:38",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1922",
+      "description": "Egypt's independence declaration",
+      "narrative_text": "Let us turn back the clock 104 years to February 28, 1922. On this day, the United Kingdom unilaterally announced its recognition of Egypt's independence, officially ending Egypt's legal status as a \"protectorate.\"",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, Cairo, Egypt, 1922. British colonial officials and Egyptian representatives at the signing ceremony of the independence agreement. Solemn conference hall, documents and quill pens on the table. Egyptian flag pattern in the background, sunlight streaming through windows. Cinematic quality, 16:9 widescreen, dignified and solemn.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_004.png",
+            "motion_prompt": "Camera slowly advances from the entrance of the conference hall to the signing table, duration 12 seconds. Sunlight slowly moves across the hall, dust particles floating in light beams. Solemn and slow rhythm, creating historical gravitas.",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Let us turn back the clock 104 years to February 28, 1922. On this day, the United Kingdom unilaterally announced its recognition of Egypt's independence, officially ending Egypt's legal status as a \"protectorate.\"</prosody></voice></speak>",
+          "text": "Let us turn back the clock 104 years to February 28, 1922. On this day, the United Kingdom unilaterally announced its recognition of Egypt's independence, officially ending Egypt's legal status as a \"protectorate.\""
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_005",
+      "time_code": "00:38-00:52",
+      "duration": 14,
+      "type": "content_scene",
+      "era": "1922",
+      "description": "Egypt's path to independence",
+      "narrative_text": "Egypt's path to independence was fraught with obstacles. Since the 19th century, Egypt had long been under British colonial rule. However, the Egyptian people never abandoned their struggle for freedom.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, Egypt late 19th to early 20th century. Egyptian streets, British colonial soldiers patrolling, local people watching nearby. Mosques and traditional Egyptian architecture in background, Nile River flowing in distance. Cinematic quality, 16:9 widescreen, colonial atmosphere.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_005.png",
+            "motion_prompt": "Camera slowly pans from left to right, showing colonial-era Egyptian streets, duration 14 seconds. Nile River slowly flowing in distance, colonial soldiers walking slowly past. Heavy rhythm, creating sense of oppression.",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Egypt's path to independence was fraught with obstacles. Since the 19th century, Egypt had long been under British colonial rule. However, the Egyptian people never abandoned their struggle for freedom.</prosody></voice></speak>",
+          "text": "Egypt's path to independence was fraught with obstacles. Since the 19th century, Egypt had long been under British colonial rule. However, the Egyptian people never abandoned their struggle for freedom."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_006",
+      "time_code": "00:52-01:06",
+      "duration": 14,
+      "type": "content_scene",
+      "era": "1919-1922",
+      "description": "Wafd Party independence movement",
+      "narrative_text": "Beginning in 1919, nationalist forces led by the \"Wafd Party\" initiated a massive anti-colonial independence movement.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, Cairo, Egypt, 1919. Wafd Party leader standing on a platform giving a speech, thousands of Egyptian people behind, raising signs and Egyptian flags. Mosque domes visible in background, sunlight shining. Cinematic quality, 16:9 widescreen, passionate and inspiring.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_006.png",
+            "motion_prompt": "Camera slowly advances from the edge of the square to the podium, duration 14 seconds. Flags waving in the wind among the crowd, speaker gesturing with arms. Inspiring rhythm, creating atmosphere of national awakening.",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Beginning in 1919, nationalist forces led by the \"Wafd Party\" initiated a massive anti-colonial independence movement.</prosody></voice></speak>",
+          "text": "Beginning in 1919, nationalist forces led by the \"Wafd Party\" initiated a massive anti-colonial independence movement."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_007",
+      "time_code": "01:06-01:14",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "Event Two title card: The 228 Incident",
+      "narrative_text": "Event Two: February 28, 1947 — The 228 Incident in **",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "Historical documentary style, chapter title card design. Large title text \"Event Two\" in the center, subtitle \"February 28, 1947 — The 228 Incident\" below. Dark gray border decoration, background shows abstract historical silhouettes, black and white photo quality. Cinematic quality, 16:9 widescreen, solemn and dignified.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_007.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Event Two: February 28, 1947 — The 228 Incident.</prosody></voice></speak>",
+          "text": "Event Two: February 28, 1947 — The 228 Incident in Taiwan."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_008",
+      "time_code": "01:14-01:26",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1947",
+      "description": "The 228 Incident background",
+      "narrative_text": "Advancing 79 years to February 28, 1947, an event occurred on the island of ** that would profoundly alter its historical trajectory — the 228 Incident.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, ** Taipei streets, 1947. Black and white photo quality, Taipei cityscape with Japanese-era and traditional Southern Fujian architecture, pedestrians and cyclists on the street. Evening sunlight slanting, long shadows cast on the ground. Cinematic quality, 16:9 widescreen, quiet and oppressed.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_008.png",
+            "motion_prompt": "Camera slowly advances through pedestrians on Taipei streets, duration 12 seconds. Pedestrians moving slowly, bicycles passing in front of lens. Light and shadow slowly changing, creating sense of historical weight.",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Advancing 79 years to February 28, 1947, an event occurred on the island of ** that would profoundly alter its historical trajectory — the 228 Incident.</prosody></voice></speak>",
+          "text": "Advancing 79 years to February 28, 1947, an event occurred on the island of Taiwan that would profoundly alter its historical trajectory — the 228 Incident."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_009",
+      "time_code": "01:26-01:38",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1947",
+      "description": "Tobacco monopoly incident",
+      "narrative_text": "The trigger for the incident seemed trivial. On the evening of February 27th, armed tobacco tax inspectors from the government monopoly bureau were conducting anti-smuggling operations in Taipei. When a female tobacco vendor refused to cooperate, they beat her.",
+      "character_id": "female_vendor_1947",
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, outside Tianma Tea House in Taipei, **, February 1947. Dim evening streetlight, a middle-aged female tobacco vendor crouching at roadside stall, wearing patched rough cloth clothes, face showing exhaustion. Monopoly bureau inspectors in dark blue uniforms, holding weapons, expression cold. Japanese-style wooden buildings in background, pedestrians stopping to watch. Cinematic quality, 16:9 widescreen, tense and oppressed.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_009.png",
+            "motion_prompt": "Camera slowly advances from street corner to the female vendor and inspectors, duration 12 seconds. Inspectors making shoving motions, vendor trying to protect her goods. Crowd beginning to gather around. Tense rhythm, creating atmosphere before conflict erupts.",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 19470227
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>The trigger for the incident seemed trivial. On the evening of February 27th, armed tobacco tax inspectors from the government monopoly bureau were conducting anti-smuggling operations in Taipei. When a female tobacco vendor refused to cooperate, they beat her.</prosody></voice></speak>",
+          "text": "The trigger for the incident seemed trivial. On the evening of February 27th, armed tobacco tax inspectors from the government monopoly bureau were conducting anti-smuggling operations in Taipei. When a female tobacco vendor refused to cooperate, they beat her."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_010",
+      "time_code": "01:38-01:50",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1947",
+      "description": "Citizen protest",
+      "narrative_text": "This violent act ignited intense anger among ordinary citizens. The next day, February 28th, large crowds flooded Taipei streets, gathering in front of the monopoly bureau headquarters in strong protest.",
+      "character_id": null,
+      "reference_image": "shot_009.png",
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, ** Taipei Monopoly Bureau entrance, 1947. Large crowds gathered on the street, angry people raising signs, demanding justice. Monopoly Bureau building visible in background, armed guards at entrance. Morning light shining, crowd emotionally agitated. Cinematic quality, 16:9 widescreen, tense and intense.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": "shot_009.png"
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_010.png",
+            "motion_prompt": "Camera slowly descends from high angle into the crowd, duration 12 seconds. People waving arms, signs waving in wind. Tense rhythm, creating atmosphere of public anger.",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>This violent act ignited intense anger among ordinary citizens. The next day, February 28th, large crowds flooded Taipei streets, gathering in front of the monopoly bureau headquarters in strong protest.</prosody></voice></speak>",
+          "text": "This violent act ignited intense anger among ordinary citizens. The next day, February 28th, large crowds flooded Taipei streets, gathering in front of the monopoly bureau headquarters in strong protest."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_011",
+      "time_code": "01:50-01:58",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "Event Three title card: Palme Assassination",
+      "narrative_text": "Event Three: February 28, 1986 — The Assassination of Swedish Prime Minister Olof Palme",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "Historical documentary style, chapter title card design. Large title text \"Event Three\" in the center, subtitle \"February 28, 1986 — Assassination of Swedish PM Olof Palme\" below. Deep blue border decoration, background shows Stockholm night scene, neon lights flickering. Cinematic quality, 16:9 widescreen, mysterious and tense.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_011.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Event Three: February 28, 1986 — The Assassination of Swedish Prime Minister Olof Palme.</prosody></voice></speak>",
+          "text": "Event Three: February 28, 1986 — The Assassination of Swedish Prime Minister Olof Palme."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_012",
+      "time_code": "01:58-02:12",
+      "duration": 14,
+      "type": "content_scene",
+      "era": "1986",
+      "description": "The night of Palme assassination",
+      "narrative_text": "Advancing 40 more years, we come to February 28, 1986, in Sweden. At 11:21 p.m. that evening, a tragedy unfolded in downtown Stockholm that would shock Swedish society and the world.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, downtown Stockholm, Sweden night scene, 1986. Late night street, dim streetlights, neon signs flickering. Typical Nordic architecture on both sides, cool-toned night sky. Cinematic quality, 16:9 widescreen, mysterious and tense.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_012.png",
+            "motion_prompt": "Camera slowly advances along Stockholm streets, duration 14 seconds. Streetlight glow flowing through lens, neon lights flickering. Slow mysterious rhythm, creating atmosphere before tragedy strikes.",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Advancing 40 more years, we come to February 28, 1986, in Sweden. At 11:21 p.m. that evening, a tragedy unfolded in downtown Stockholm that would shock Swedish society and the world.</prosody></voice></speak>",
+          "text": "Advancing 40 more years, we come to February 28, 1986, in Sweden. At 11:21 p.m. that evening, a tragedy unfolded in downtown Stockholm that would shock Swedish society and the world."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_013",
+      "time_code": "02:12-02:24",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1986",
+      "description": "Palme couple walking home",
+      "narrative_text": "Swedish Prime Minister Olof Palme and his wife had just left a cinema and were walking home. Suddenly, a mysterious armed figure emerged from the darkness and without hesitation fired several shots at the Prime Minister.",
+      "character_id": "olof_palme_1986",
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, Stockholm, Sweden late night street, 1986. Swedish Prime Minister Olof Palme and his wife Lisbet walking side by side on the street, both wearing dark overcoats, expressions relaxed and pleasant. Background shows late night street, streetlights casting dim yellow glow. Cinematic quality, 16:9 widescreen, peaceful and serene.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_013.png",
+            "motion_prompt": "Camera follows behind the Palme couple, slowly advancing, duration 12 seconds. The two walking under streetlights, light and shadow alternating on ground. Peaceful rhythm, creating calm before the storm.",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 19860228
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Swedish Prime Minister Olof Palme and his wife had just left a cinema and were walking home. Suddenly, a mysterious armed figure emerged from the darkness and without hesitation fired several shots at the Prime Minister.</prosody></voice></speak>",
+          "text": "Swedish Prime Minister Olof Palme and his wife had just left a cinema and were walking home. Suddenly, a mysterious armed figure emerged from the darkness and without hesitation fired several shots at the Prime Minister."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_014",
+      "time_code": "02:24-02:32",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "Event Four title card: Gulf War End",
+      "narrative_text": "Event Four: February 28, 1991 — The End of the Gulf War",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "Historical documentary style, chapter title card design. Large title text \"Event Four\" in the center, subtitle \"February 28, 1991 — The End of the Gulf War\" below. Golden border decoration, background shows desert battlefield and military aircraft silhouettes, sunset shining. Cinematic quality, 16:9 widescreen, epic grandeur.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_014.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Event Four: February 28, 1991 — The End of the Gulf War.</prosody></voice></speak>",
+          "text": "Event Four: February 28, 1991 — The End of the Gulf War."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_015",
+      "time_code": "02:32-02:44",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1991",
+      "description": "Gulf War conclusion",
+      "narrative_text": "Fast-forward to 35 years ago, February 28, 1991. On the morning of this day, the globally watched Gulf War reached its conclusion.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, Gulf War battlefield, 1991. Dawn over Kuwait desert, coalition fighter jets flying across sky, leaving white contrails. Tanks and military vehicles on ground, smoke rising in distance. Cinematic quality, 16:9 widescreen, epic grandeur.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_015.png",
+            "motion_prompt": "Camera slowly descends from aerial view to desert battlefield, duration 12 seconds. Fighter jets passing overhead, military vehicles on ground slowly moving. Epic rhythm, creating atmosphere of war's end.",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Fast-forward to 35 years ago, February 28, 1991. On the morning of this day, the globally watched Gulf War reached its conclusion.</prosody></voice></speak>",
+          "text": "Fast-forward to 35 years ago, February 28, 1991. On the morning of this day, the globally watched Gulf War reached its conclusion."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_016",
+      "time_code": "02:44-02:58",
+      "duration": 14,
+      "type": "content_scene",
+      "era": "1990-1991",
+      "description": "Coalition airstrikes",
+      "narrative_text": "When Iraqi forces invaded Kuwait on August 2, 1990, the world's geopolitical landscape underwent profound change. In response to this crisis, a massive coalition of 35 nations led by the United States was formed.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, Gulf War coalition airstrikes, 1991. Nighttime battlefield, coalition aircraft launching missiles, bright fire trails crossing the night sky. Ground targets exploding, flames rising, thick smoke billowing. Cinematic quality, 16:9 widescreen, tense and intense.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_016.png",
+            "motion_prompt": "Camera slowly advances through night battlefield, duration 14 seconds. Missile trails crossing sky, ground explosions illuminating darkness. Intense rhythm, creating atmosphere of massive military operation.",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>When Iraqi forces invaded Kuwait on August 2, 1990, the world's geopolitical landscape underwent profound change. In response to this crisis, a massive coalition of 35 nations led by the United States was formed.</prosody></voice></speak>",
+          "text": "When Iraqi forces invaded Kuwait on August 2, 1990, the world's geopolitical landscape underwent profound change. In response to this crisis, a massive coalition of 35 nations led by the United States was formed."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_017",
+      "time_code": "02:58-03:06",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "Event Five title card: Pope's Resignation",
+      "narrative_text": "Event Five: February 28, 2013 — Pope Benedict XVI's Official Resignation",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "Historical documentary style, chapter title card design. Large title text \"Event Five\" in the center, subtitle \"February 28, 2013 — Pope Benedict XVI's Resignation\" below. Gold and white border decoration, background shows St. Peter's Basilica silhouette, Vatican flags, golden light shining. Cinematic quality, 16:9 widescreen, solemn and dignified.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_017.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Event Five: February 28, 2013 — Pope Benedict XVI's Official Resignation.</prosody></voice></speak>",
+          "text": "Event Five: February 28, 2013 — Pope Benedict XVI's Official Resignation."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_018",
+      "time_code": "03:06-03:18",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "2013",
+      "description": "Vatican historic moment",
+      "narrative_text": "We come now to February 28, 2013, thirteen years ago. In Vatican City, a rare historical event was unfolding — Pope Benedict XVI's official resignation.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, Vatican City, 2013. St. Peter's Square, the Pope's empty balcony, Swiss Guards in traditional colorful uniforms standing at attention. Overcast sky, crowds gathered in the square, some holding cameras. Cinematic quality, 16:9 widescreen, solemn and historic.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_018.png",
+            "motion_prompt": "Camera slowly advances across St. Peter's Square toward the balcony, duration 12 seconds. Crowd slowly moving, flags waving gently in breeze. Solemn rhythm, creating atmosphere of historic moment.",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>We come now to February 28, 2013, thirteen years ago. In Vatican City, a rare historical event was unfolding — Pope Benedict XVI's official resignation.</prosody></voice></speak>",
+          "text": "We come now to February 28, 2013, thirteen years ago. In Vatican City, a rare historical event was unfolding — Pope Benedict XVI's official resignation."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_019",
+      "time_code": "03:18-03:32",
+      "duration": 14,
+      "type": "content_scene",
+      "era": "2013",
+      "description": "Pope Benedict XVI announcement",
+      "narrative_text": "The prelude to this event began on the 11th of the same month. The 86-year-old Pope Benedict XVI made an announcement that shocked the world: he would resign from his position as Pope.",
+      "character_id": "pope_benedict_2013",
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, Vatican, February 2013. Pope Benedict XVI, 86 years old, wearing white papal vestments and zucchetto, sitting in a private study. Gentle lighting, bookshelves with religious texts in background, a writing desk with papers. His expression shows both peace and the weight of decision. Cinematic quality, 16:9 widescreen, contemplative and serene.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_019.png",
+            "motion_prompt": "Camera slowly advances toward Pope Benedict XVI, duration 14 seconds. Gentle light moving across his face, papers on desk slightly moving. Contemplative rhythm, creating atmosphere of historic decision.",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 20130211
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>The prelude to this event began on the 11th of the same month. The 86-year-old Pope Benedict XVI made an announcement that shocked the world: he would resign from his position as Pope.</prosody></voice></speak>",
+          "text": "The prelude to this event began on the 11th of the same month. The 86-year-old Pope Benedict XVI made an announcement that shocked the world: he would resign from his position as Pope."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_020",
+      "time_code": "03:32-03:46",
+      "duration": 14,
+      "type": "transition",
+      "era": null,
+      "description": "Historical reflection",
+      "narrative_text": "Reflecting on history, we witness the persistent struggles for independence, firm commitment to democracy and self-determination, tragic violence visited upon political leaders, and the courage of religious leaders to engage in self-reflection.",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, abstract historical reflection composition. A flowing river of time, with symbolic elements floating: Egyptian pyramids representing independence, scales of justice representing democracy, candlelight representing peace, Vatican dome representing faith. Golden light connecting all elements, deep cosmic background. Cinematic quality, 16:9 widescreen, contemplative and philosophical.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_020.png",
+            "motion_prompt": "Camera slowly advances through the symbolic landscape, duration 14 seconds. Symbolic elements gently floating and rotating, golden light flowing between them. Contemplative rhythm, creating atmosphere of historical reflection.",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-GuyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-GuyNeural'><prosody rate='0.9' pitch='-5%'>Reflecting on history, we witness the persistent struggles for independence, firm commitment to democracy and self-determination, tragic violence visited upon political leaders, and the courage of religious leaders to engage in self-reflection.</prosody></voice></speak>",
+          "text": "Reflecting on history, we witness the persistent struggles for independence, firm commitment to democracy and self-determination, tragic violence visited upon political leaders, and the courage of religious leaders to engage in self-reflection."
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_021",
+      "time_code": "03:46-03:58",
+      "duration": 12,
+      "type": "transition",
+      "era": null,
+      "description": "Historical timeline summary",
+      "narrative_text": "Thank you for listening. We will see you again in our next episode!",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "Historical documentary style, historical timeline summary. A flowing time river stretching into the distance, with all five event years marked along its banks: 1922, 1947, 1986, 1991, 2013. Each year illuminated by golden light. Background transitions from ancient to modern, cosmic starfield in the far distance. Cinematic quality, 16:9 widescreen, epic and hopeful.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_out",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_021.png",
+            "duration": 12,
+            "zoom_start": 1.2,
+            "zoom_end": 1.0,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-JennyNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='en-US'><voice name='en-US-JennyNeural'><prosody rate='0.95'>Thank you for listening. We will see you again in our next episode!</prosody></voice></speak>",
+          "text": "Thank you for listening. We will see you again in our next episode!"
+        }
+      },
+
+      "transition": {
+        "type": "fade_to_black",
+        "duration": 2.0
+      }
+    },
+
+    {
+      "shot_id": "shot_022",
+      "time_code": "03:58-04:02",
+      "duration": 4,
+      "type": "title_card",
+      "era": null,
+      "description": "End card",
+      "narrative_text": "",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "Historical documentary style, end card design. Large text \"This Day in History\" in the center, smaller text \"Subscribe for more\" below. Golden border decoration, background shows fading historical imagery with starlight. Cinematic quality, 16:9 widescreen, elegant and professional.",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "static",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_022.png",
+            "duration": 4,
+            "zoom_start": 1.0,
+            "zoom_end": 1.05,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "en-US-JennyNeural",
+          "ssml": "",
+          "text": ""
+        }
+      },
+
+      "transition": {
+        "type": "fade_to_black",
+        "duration": 1.0
+      }
+    }
+  ]
+}

@@ -1,0 +1,1350 @@
+{
+  "meta": {
+    "project_name": "历史上的今天",
+    "episode": "26-02-28CH",
+    "total_duration": 242,
+    "shot_count": 22,
+    "created_at": "2026-02-28",
+    "cost_estimate": {
+      "seedance_shots": 13,
+      "ffmpeg_shots": 9,
+      "estimated_cost_yuan": 16
+    },
+    "global_assets": {
+      "bgm": {
+        "path": "assets/bgm/documentary_ambient.mp3",
+        "volume": 0.3,
+        "ducking": true,
+        "ducking_ratio": 0.2
+      },
+      "fonts": {
+        "title": "assets/fonts/NotoSerifSC-Bold.otf",
+        "subtitle": "assets/fonts/NotoSansSC-Regular.otf"
+      },
+      "logo": "assets/images/logo.png"
+    },
+    "style_preset": {
+      "visual_style": "历史纪录片风格",
+      "color_grading": "暖色调，电影质感",
+      "transition_default": "dissolve"
+    },
+    "storage": {
+      "type": "local",
+      "base_path": "outputs/26-02-28CH/"
+    },
+    "audio_mix": {
+      "normalize_voice": true,
+      "bgm_ducking": true
+    }
+  },
+
+  "shots": [
+    {
+      "shot_id": "shot_001",
+      "time_code": "00:00-00:08",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "节目标题卡",
+      "narrative_text": "各位观众、各位听众，大家好！欢迎收听《历史上的今天》。我是您的播音员。今天是2026年2月28日，星期六。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，标题卡片设计。中央大字\"历史上的今天\"，下方副标题\"2026年2月28日\"。金色边框装饰，背景是历史时光隧道效果，展现从古代到现代的时间流动，星光闪烁。电影质感，16:9横屏，庄重大气。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_001.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.15,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>各位观众、各位听众，大家好！欢迎收听《历史上的今天》。我是您的播音员。今天是2026年2月28日，星期六。</prosody></voice></speak>",
+          "text": "各位观众、各位听众，大家好！欢迎收听《历史上的今天》。我是您的播音员。今天是2026年2月28日，星期六。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_002",
+      "time_code": "00:08-00:18",
+      "duration": 10,
+      "type": "transition",
+      "era": null,
+      "description": "历史长河开篇",
+      "narrative_text": "在这个特殊的日子里，让我们一起回顾人类历史上那些在2月28日发生的重大事件，这些事件塑造了我们的世界，影响了无数人的生命轨迹。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，横向时间轴画面。背景是深邃的宇宙星空。时间轴从左到右延伸，标记了1922年（埃及独立）、1947年（**二二八事件）、1986年（瑞典首相遇刺）、1991年（海湾战争结束）、2013年（教皇辞职）。每个年份用金色光点标记，金色光芒连接各个光点。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "pan_right",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_002.png",
+            "duration": 10,
+            "zoom_start": 1.1,
+            "zoom_end": 1.1,
+            "pan_x_start": 0.3,
+            "pan_x_end": 0.7,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>在这个特殊的日子里，让我们一起回顾人类历史上那些在2月28日发生的重大事件，这些事件塑造了我们的世界，影响了无数人的生命轨迹。</prosody></voice></speak>",
+          "text": "在这个特殊的日子里，让我们一起回顾人类历史上那些在2月28日发生的重大事件，这些事件塑造了我们的世界，影响了无数人的生命轨迹。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_003",
+      "time_code": "00:18-00:26",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "第一事件标题卡：埃及独立宣言",
+      "narrative_text": "【第一个事件】1922年2月28日——埃及独立宣言",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，章节标题卡片设计。中央大字\"第一个事件\"，下方副标题\"1922年2月28日——埃及独立宣言\"。金色边框装饰，背景是金字塔和尼罗河的轮廓，金色光芒照耀。电影质感，16:9横屏，庄重大气。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_003.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>第一个事件，1922年2月28日——埃及独立宣言。</prosody></voice></speak>",
+          "text": "第一个事件，1922年2月28日——埃及独立宣言。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_004",
+      "time_code": "00:26-00:38",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1922年",
+      "description": "埃及独立宣言签署",
+      "narrative_text": "时间回溯到104年前的1922年2月28日。在这一天，英国单方面宣布承认埃及的独立，标志着埃及正式结束了其\"保护国\"的法律地位。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，1922年埃及开罗。英国殖民官员与埃及代表在签署独立协议的现场，庄重的会议厅内，桌面上摆放着文件和羽毛笔。背景是埃及国旗的图案，阳光从窗户射入。电影质感，16:9横屏，庄严肃穆。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_004.png",
+            "motion_prompt": "镜头缓慢推进，从会议厅的入口移动到签署文件的桌面，时长12秒。阳光在会议厅内缓慢移动，尘埃在光柱中飘动。节奏庄重缓慢，营造历史厚重感。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>时间回溯到104年前的1922年2月28日。在这一天，英国单方面宣布承认埃及的独立，标志着埃及正式结束了其\"保护国\"的法律地位。</prosody></voice></speak>",
+          "text": "时间回溯到104年前的1922年2月28日。在这一天，英国单方面宣布承认埃及的独立，标志着埃及正式结束了其\"保护国\"的法律地位。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_005",
+      "time_code": "00:38-00:52",
+      "duration": 14,
+      "type": "content_scene",
+      "era": "1922年",
+      "description": "埃及独立运动",
+      "narrative_text": "埃及的独立之路充满了坎坷。自19世纪以来，埃及长期处于英国的殖民统治之下。但埃及人民从未放弃争取自由的努力。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，19世纪末至20世纪初的埃及。埃及街头，英国殖民士兵在巡逻，当地民众在旁边观望。背景是清真寺和传统埃及建筑，尼罗河在远处流淌。电影质感，16:9横屏，殖民地氛围。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_005.png",
+            "motion_prompt": "镜头从左向右缓慢平移，展示埃及街头的殖民时期景象，时长14秒。尼罗河在远处缓慢流动，殖民士兵缓缓走过。节奏沉重，营造压迫感。",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>埃及的独立之路充满了坎坷。自19世纪以来，埃及长期处于英国的殖民统治之下。但埃及人民从未放弃争取自由的努力。</prosody></voice></speak>",
+          "text": "埃及的独立之路充满了坎坷。自19世纪以来，埃及长期处于英国的殖民统治之下。但埃及人民从未放弃争取自由的努力。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_006",
+      "time_code": "00:52-01:06",
+      "duration": 14,
+      "type": "content_scene",
+      "era": "1919-1922年",
+      "description": "华夫脱党独立运动",
+      "narrative_text": "从1919年开始，以\"华夫脱党\"为首的民族主义力量领导了声势浩大的反殖民独立运动。这场运动经过三年的奋斗和斗争，最终迫使英国政府在1922年2月28日做出了妥协——承认埃及的独立。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，1919年埃及开罗。华夫脱党领导人站在广场上发表演讲，身后是成千上万的埃及民众，高举标语和埃及旗帜。清真寺的圆顶在背景中可见，阳光照耀。电影质感，16:9横屏，激情澎湃。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_006.png",
+            "motion_prompt": "镜头缓慢推进，从广场边缘移动到演讲台，时长14秒。人群中的旗帜在风中飘动，演讲者挥动手臂。节奏激动人心，营造民族觉醒的氛围。",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>从1919年开始，以\"华夫脱党\"为首的民族主义力量领导了声势浩大的反殖民独立运动。这场运动经过三年的奋斗和斗争，最终迫使英国政府在1922年2月28日做出了妥协——承认埃及的独立。</prosody></voice></speak>",
+          "text": "从1919年开始，以\"华夫脱党\"为首的民族主义力量领导了声势浩大的反殖民独立运动。这场运动经过三年的奋斗和斗争，最终迫使英国政府在1922年2月28日做出了妥协——承认埃及的独立。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_007",
+      "time_code": "01:06-01:14",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "第二事件标题卡：台湾二二八事件",
+      "narrative_text": "【第二个事件】1947年2月28日——台湾二二八事件",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，章节标题卡片设计。中央大字\"第二个事件\"，下方副标题\"1947年2月28日——**二二八事件\"。深灰色边框装饰，背景是抽象的历史剪影，黑白照片质感。电影质感，16:9横屏，庄重肃穆。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_007.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>第二个事件，1947年2月28日——**二二八事件。</prosody></voice></speak>",
+          "text": "第二个事件，1947年2月28日——台湾二二八事件。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_008",
+      "time_code": "01:14-01:26",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1947年",
+      "description": "二二八事件背景",
+      "narrative_text": "时间再向前推进到79年前的1947年2月28日。在这一天，**岛上发生了一次深刻改变其历史进程的悲剧事件——二二八事件。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，1947年**台北街头。黑白照片质感，台北的城市街景，日式建筑和传统闽南建筑并存，街上行人和自行车来往。傍晚的阳光斜照，长影投射在地面上。电影质感，16:9横屏，沉静压抑。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_008.png",
+            "motion_prompt": "镜头缓慢向前推进，穿过台北街头的行人，时长12秒。街上的行人缓慢移动，自行车从镜头前经过。光影缓慢变化，营造历史沉淀感。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>时间再向前推进到79年前的1947年2月28日。在这一天，**岛上发生了一次深刻改变其历史进程的悲剧事件——二二八事件。</prosody></voice></speak>",
+          "text": "时间再向前推进到79年前的1947年2月28日。在这一天，台湾岛上发生了一次深刻改变其历史进程的悲剧事件——二二八事件。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_009",
+      "time_code": "01:26-01:38",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1947年",
+      "description": "查缉私烟事件",
+      "narrative_text": "事件的触发点看似很小。2月27日傍晚，国民政府专卖局的武装缉私人员在台北市查缉私烟时，因一名女烟贩拒配合，对她进行了殴打。这一暴力行为激起了普通市民的极大愤怒。",
+      "character_id": "lin_jiangmai_1947",
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，1947年**台北太平町天马茶房前。傍晚昏黄的街灯，一名中年女烟贩蹲在路边摆摊，身穿打补丁的粗布衣裳，脸上写满疲惫。专卖局查缉员身穿深蓝色制服，手持枪械，表情冷酷。背景是日式木结构建筑，街上行人驻足观望。电影质感，16:9横屏，紧张压抑。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_009.png",
+            "motion_prompt": "镜头从街角缓慢推近到女烟贩和查缉员，时长12秒。查缉员做出推搡动作，女烟贩试图保护自己的货物。周围群众开始聚集。节奏紧张，营造冲突爆发前的氛围。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 19470227
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>事件的触发点看似很小。2月27日傍晚，国民政府专卖局的武装缉私人员在台北市查缉私烟时，因一名女烟贩拒配合，对她进行了殴打。这一暴力行为激起了普通市民的极大愤怒。</prosody></voice></speak>",
+          "text": "事件的触发点看似很小。2月27日傍晚，国民政府专卖局的武装缉私人员在台北市查缉私烟时，因一名女烟贩拒配合，对她进行了殴打。这一暴力行为激起了普通市民的极大愤怒。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_010",
+      "time_code": "01:38-01:50",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1947年",
+      "description": "市民抗议",
+      "narrative_text": "第二天，也就是2月28日，大批市民涌入台北市街头，聚集在专卖局大门前进行强烈抗议。",
+      "character_id": null,
+      "reference_image": "shot_009.png",
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，1947年**台北专卖局大门前。大批市民聚集在街道上，愤怒的人群高举标语，要求正义。专卖局的建筑在背景中可见，门口有武装守卫。晨光照耀，人群的情绪激动。电影质感，16:9横屏，紧张激烈。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": "shot_009.png"
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_010.png",
+            "motion_prompt": "镜头从高处俯瞰，缓慢下降到人群中间，时长12秒。人群挥动手臂，标语在风中飘动。节奏紧张，营造民众愤怒的氛围。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>第二天，也就是2月28日，大批市民涌入台北市街头，聚集在专卖局大门前进行强烈抗议。</prosody></voice></speak>",
+          "text": "第二天，也就是2月28日，大批市民涌入台北市街头，聚集在专卖局大门前进行强烈抗议。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_011",
+      "time_code": "01:50-01:58",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "第三事件标题卡：瑞典首相遇刺",
+      "narrative_text": "【第三个事件】1986年2月28日——瑞典首相帕尔梅遇刺事件",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，章节标题卡片设计。中央大字\"第三个事件\"，下方副标题\"1986年2月28日——瑞典首相帕尔梅遇刺事件\"。深蓝色边框装饰，背景是斯德哥尔摩夜景，霓虹灯光闪烁。电影质感，16:9横屏，神秘紧张。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_011.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>第三个事件，1986年2月28日——瑞典首相帕尔梅遇刺事件。</prosody></voice></speak>",
+          "text": "第三个事件，1986年2月28日——瑞典首相帕尔梅遇刺事件。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_012",
+      "time_code": "01:58-02:12",
+      "duration": 14,
+      "type": "content_scene",
+      "era": "1986年",
+      "description": "帕尔梅遇刺之夜",
+      "narrative_text": "时间又向前推进40年，来到1986年2月28日的瑞典。在这一晚上11时21分，一个震惊了整个瑞典社会、震惊了世界的悲剧在首都斯德哥尔摩市中心上演了。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，1986年瑞典斯德哥尔摩市中心夜景。深夜的街道，路灯昏黄，霓虹灯招牌闪烁。街道两旁是典型的北欧建筑，冷色调的夜空。电影质感，16:9横屏，神秘紧张。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_012.png",
+            "motion_prompt": "镜头沿着斯德哥尔摩街道缓慢向前推进，时长14秒。路灯的光芒在镜头中流动，霓虹灯闪烁。节奏缓慢神秘，营造悲剧即将发生的氛围。",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>时间又向前推进40年，来到1986年2月28日的瑞典。在这一晚上11时21分，一个震惊了整个瑞典社会、震惊了世界的悲剧在首都斯德哥尔摩市中心上演了。</prosody></voice></speak>",
+          "text": "时间又向前推进40年，来到1986年2月28日的瑞典。在这一晚上11时21分，一个震惊了整个瑞典社会、震惊了世界的悲剧在首都斯德哥尔摩市中心上演了。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_013",
+      "time_code": "02:12-02:24",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1986年",
+      "description": "帕尔梅夫妇回家路上",
+      "narrative_text": "瑞典首相奥洛夫·帕尔梅与妻子丽斯贝特·帕尔梅刚刚看完一场电影，两人正漫步在回家的路上。突然，一名持枪的神秘人物从暗处冲出，毫不犹豫地向帕尔梅连开数枪。",
+      "character_id": "olof_palme_1986",
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，1986年瑞典斯德哥尔摩深夜街头。瑞典首相奥洛夫·帕尔梅与妻子丽斯贝特并肩走在街道上，两人身穿深色大衣，表情轻松愉快。背景是深夜的街道，路灯投下昏黄的光芒。电影质感，16:9横屏，平静安详。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_013.png",
+            "motion_prompt": "镜头从背后跟随帕尔梅夫妇，缓慢向前移动，时长12秒。两人在街灯下漫步，光影在地面交替。节奏平缓，营造暴风雨前的宁静。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 19860228
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>瑞典首相奥洛夫·帕尔梅与妻子丽斯贝特·帕尔梅刚刚看完一场电影，两人正漫步在回家的路上。突然，一名持枪的神秘人物从暗处冲出，毫不犹豫地向帕尔梅连开数枪。</prosody></voice></speak>",
+          "text": "瑞典首相奥洛夫·帕尔梅与妻子丽斯贝特·帕尔梅刚刚看完一场电影，两人正漫步在回家的路上。突然，一名持枪的神秘人物从暗处冲出，毫不犹豫地向帕尔梅连开数枪。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_014",
+      "time_code": "02:24-02:32",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "第四事件标题卡：海湾战争结束",
+      "narrative_text": "【第四个事件】1991年2月28日——海湾战争结束",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，章节标题卡片设计。中央大字\"第四个事件\"，下方副标题\"1991年2月28日——海湾战争结束\"。金色边框装饰，背景是沙漠战场和军机的剪影，夕阳照耀。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_014.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>第四个事件，1991年2月28日——海湾战争结束。</prosody></voice></speak>",
+          "text": "第四个事件，1991年2月28日——海湾战争结束。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_015",
+      "time_code": "02:32-02:44",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "1991年",
+      "description": "海湾战争终局",
+      "narrative_text": "时间来到距今35年前的1991年2月28日。在这一天的清晨，举世瞩目的海湾战争迎来了终局。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，1991年海湾战争战场。科威特沙漠上空的黎明，联军战斗机在天空飞过，留下白色尾迹。地面上是坦克和军车，远处有硝烟升起。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_015.png",
+            "motion_prompt": "镜头从天空俯瞰，缓慢下降到沙漠战场，时长12秒。战斗机从镜头上方飞过，地面的军车缓慢移动。节奏宏大，营造战争终结的氛围。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>时间来到距今35年前的1991年2月28日。在这一天的清晨，举世瞩目的海湾战争迎来了终局。</prosody></voice></speak>",
+          "text": "时间来到距今35年前的1991年2月28日。在这一天的清晨，举世瞩目的海湾战争迎来了终局。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_016",
+      "time_code": "02:44-02:58",
+      "duration": 14,
+      "type": "content_scene",
+      "era": "1990-1991年",
+      "description": "联军空袭",
+      "narrative_text": "从1990年8月2日伊拉克军队入侵科威特开始，世界格局发生了深刻变化。为了应对这场危机，以美国为首的35个国家组成了一支庞大的联军。经过五个多月的外交谈判、联合国制裁和军事准备，联军发动了猛烈的空中打击。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，1991年海湾战争联军空袭。夜间战场，联军战机发射导弹，夜空中划过明亮的火光轨迹。地面目标爆炸，火光冲天，浓烟滚滚。电影质感，16:9横屏，紧张激烈。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_016.png",
+            "motion_prompt": "镜头从远处观察战场，导弹轨迹划过夜空，时长14秒。爆炸的火光在地面闪烁，浓烟升腾。节奏紧张，营造现代战争的震撼感。",
+            "duration": 14,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>从1990年8月2日伊拉克军队入侵科威特开始，世界格局发生了深刻变化。为了应对这场危机，以美国为首的35个国家组成了一支庞大的联军。经过五个多月的外交谈判、联合国制裁和军事准备，联军发动了猛烈的空中打击。</prosody></voice></speak>",
+          "text": "从1990年8月2日伊拉克军队入侵科威特开始，世界格局发生了深刻变化。为了应对这场危机，以美国为首的35个国家组成了一支庞大的联军。经过五个多月的外交谈判、联合国制裁和军事准备，联军发动了猛烈的空中打击。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_017",
+      "time_code": "02:58-03:06",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "第五事件标题卡：教皇辞职",
+      "narrative_text": "【第五个事件】2013年2月28日——教皇本笃十六世正式辞职",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，章节标题卡片设计。中央大字\"第五个事件\"，下方副标题\"2013年2月28日——教皇本笃十六世正式辞职\"。金色边框装饰，背景是梵蒂冈圣彼得大教堂和天空中飞翔的白鸽。电影质感，16:9横屏，庄严肃穆。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_017.png",
+            "duration": 8,
+            "zoom_start": 1.0,
+            "zoom_end": 1.1,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>第五个事件，2013年2月28日——教皇本笃十六世正式辞职。</prosody></voice></speak>",
+          "text": "第五个事件，2013年2月28日——教皇本笃十六世正式辞职。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_018",
+      "time_code": "03:06-03:18",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "2013年",
+      "description": "教皇辞职宣布",
+      "narrative_text": "时间来到13年前的2013年2月28日。在梵蒂冈城，一场罕见的历史事件正在发生——教皇本笃十六世正式离任。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，2013年梵蒂冈圣彼得广场。傍晚时分，广场上聚集着成千上万的信徒，仰望圣彼得大教堂。教堂的圆顶在夕阳下呈现金色光芒。电影质感，16:9横屏，庄严肃穆。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_018.png",
+            "motion_prompt": "镜头从圣彼得广场的人群缓慢上升，移向圣彼得大教堂的圆顶，时长12秒。夕阳的金色光芒缓慢移动，信徒们仰望。节奏庄重，营造历史时刻的氛围。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>时间来到13年前的2013年2月28日。在梵蒂冈城，一场罕见的历史事件正在发生——教皇本笃十六世正式离任。</prosody></voice></speak>",
+          "text": "时间来到13年前的2013年2月28日。在梵蒂冈城，一场罕见的历史事件正在发生——教皇本笃十六世正式离任。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_019",
+      "time_code": "03:18-03:30",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "2013年",
+      "description": "教皇宣布辞职",
+      "narrative_text": "这个事件的序幕始于同月的11日。86岁高龄的教皇本笃十六世突然宣布了一个令世界为之震惊的决定：他将辞去教皇一职。",
+      "character_id": "benedict_xvi_2013",
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，2013年梵蒂冈教皇书房。86岁的教皇本笃十六世身穿白色教皇袍，头戴白色小帽，坐在书桌前，神情疲惫但坚定。书房内是古老的宗教艺术品和书籍，烛光温暖。电影质感，16:9横屏，庄严肃穆。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_019.png",
+            "motion_prompt": "镜头缓慢推进，从书房门口移动到教皇面前，时长12秒。教皇缓缓抬起头，目光深邃。烛光在房间内轻轻摇曳。节奏庄重，营造重大决定的氛围。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": 20130228
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>这个事件的序幕始于同月的11日。86岁高龄的教皇本笃十六世突然宣布了一个令世界为之震惊的决定：他将辞去教皇一职。</prosody></voice></speak>",
+          "text": "这个事件的序幕始于同月的11日。86岁高龄的教皇本笃十六世突然宣布了一个令世界为之震惊的决定：他将辞去教皇一职。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_020",
+      "time_code": "03:30-03:42",
+      "duration": 12,
+      "type": "content_scene",
+      "era": "2013年",
+      "description": "教皇离任",
+      "narrative_text": "到了2月28日晚上8时，本笃十六世正式离任。他乘坐直升机离开了梵蒂冈城。",
+      "character_id": "benedict_xvi_2013",
+      "reference_image": "shot_019.png",
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，2013年梵蒂冈城黄昏。一架白色直升机在夕阳下起飞，载着教皇本笃十六世离开梵蒂冈。背景是圣彼得大教堂的圆顶和罗马城的天际线，晚霞映照。电影质感，16:9横屏，庄重感人。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": "shot_019.png"
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "seedance",
+          "model": "doubao-seedance-2.0",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_020.png",
+            "motion_prompt": "镜头从地面仰拍直升机起飞，跟随直升机上升，时长12秒。直升机缓缓升空，夕阳的光芒逐渐变暗。节奏感人，营造告别的氛围。",
+            "duration": 12,
+            "resolution": "1080p",
+            "aspect_ratio": "16:9",
+            "seed": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>到了2月28日晚上8时，本笃十六世正式离任。他乘坐直升机离开了梵蒂冈城。</prosody></voice></speak>",
+          "text": "到了2月28日晚上8时，本笃十六世正式离任。他乘坐直升机离开了梵蒂冈城。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_021",
+      "time_code": "03:42-03:54",
+      "duration": 12,
+      "type": "transition",
+      "era": null,
+      "description": "历史回顾转场",
+      "narrative_text": "回顾历史，我们看到了：埃及人民为争取独立所付出的不懈努力，**人民为追求民主和自治的坚定信念，政治人物所遭遇的暴力悲剧，国际社会在面对侵略时的集体反应，以及宗教领袖对于自我反思和承诺的勇气。",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-3.0",
+          "parameters": {
+            "prompt": "历史纪录片风格，拼贴式历史回顾画面。画面中央是流动的时间轴，四周是五个事件的标志性画面剪影：埃及金字塔、**岛屿轮廓、斯德哥尔摩街景、海湾战争军机、梵蒂冈教堂。金色光芒连接各个场景。电影质感，16:9横屏，宏大史诗感。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": false,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_in",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_021.png",
+            "duration": 12,
+            "zoom_start": 1.0,
+            "zoom_end": 1.2,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-YunxiNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-YunxiNeural'><prosody rate='0.9' pitch='-5%'>回顾历史，我们看到了：埃及人民为争取独立所付出的不懈努力，**人民为追求民主和自治的坚定信念，政治人物所遭遇的暴力悲剧，国际社会在面对侵略时的集体反应，以及宗教领袖对于自我反思和承诺的勇气。</prosody></voice></speak>",
+          "text": "回顾历史，我们看到了：埃及人民为争取独立所付出的不懈努力，台湾人民为追求民主和自治的坚定信念，政治人物所遭遇的暴力悲剧，国际社会在面对侵略时的集体反应，以及宗教领袖对于自我反思和承诺的勇气。"
+        }
+      },
+
+      "transition": {
+        "type": "dissolve",
+        "duration": 1.0
+      }
+    },
+
+    {
+      "shot_id": "shot_022",
+      "time_code": "03:54-04:02",
+      "duration": 8,
+      "type": "title_card",
+      "era": null,
+      "description": "结尾感谢卡",
+      "narrative_text": "感谢各位的收听，我们下期节目再见！",
+      "character_id": null,
+      "reference_image": null,
+      "status": "pending",
+
+      "tasks": {
+        "image": {
+          "tool": "seedream",
+          "model": "doubao-seedream-4.5",
+          "parameters": {
+            "prompt": "历史纪录片风格，结尾感谢卡片设计。中央大字\"感谢收听\"，下方副标题\"我们下期节目再见\"。金色边框装饰，背景是渐变的历史时光隧道效果，星光逐渐淡出。电影质感，16:9横屏，温暖感人。",
+            "size": "1920x1080",
+            "n": 1,
+            "needs_text": true,
+            "reference_image": null
+          },
+          "retry_policy": {
+            "max_retries": 3,
+            "backoff": "exponential"
+          }
+        },
+
+        "video": {
+          "tool": "ffmpeg",
+          "effect": "zoom_out",
+          "depends_on": ["tasks.image"],
+          "parameters": {
+            "input_image": "shot_022.png",
+            "duration": 8,
+            "zoom_start": 1.2,
+            "zoom_end": 1.0,
+            "fps": 30,
+            "resolution": "1920x1080"
+          }
+        },
+
+        "audio": {
+          "tool": "azure_tts",
+          "voice": "zh-CN-XiaoxiaoNeural",
+          "ssml": "<speak version='1.0' xmlns='http://www.w3.org/2001/10/synthesis' xml:lang='zh-CN'><voice name='zh-CN-XiaoxiaoNeural'><prosody rate='0.95'>感谢各位的收听，我们下期节目再见！</prosody></voice></speak>",
+          "text": "感谢各位的收听，我们下期节目再见！"
+        }
+      },
+
+      "transition": {
+        "type": "fade_to_black",
+        "duration": 2.0
+      }
+    }
+  ]
+}
